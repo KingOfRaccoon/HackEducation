@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "139774988729",
+    "project_id": "hackeducation-34b23",
+    "storage_bucket": "hackeducation-34b23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139774988729:android:fec6f9f66c4c16651fe668",
+        "android_client_info": {
+          "package_name": "ru.castprograms.hackeducation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139774988729-r0dlb6jqrroq4ih9qul7gudvq2a35q08.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_VkK80d1g_TuDY7y-GV5j6m9dj6mbqzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139774988729-r0dlb6jqrroq4ih9qul7gudvq2a35q08.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

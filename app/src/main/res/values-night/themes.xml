@@ -13,4 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="background_std">
+        <item name="android:background">@drawable/background_dark</item>
+    </style>
 </resources>

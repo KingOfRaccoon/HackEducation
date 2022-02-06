@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">HackEducation</string>
+    <string name="courses">Курсы</string>
+    <string name="top">Рейтинг</string>
+    <string name="profile">Профиль</string>
 </resources>
