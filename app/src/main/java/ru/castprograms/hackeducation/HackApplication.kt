@@ -12,6 +12,8 @@ import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 import org.koin.dsl.module
 import ru.castprograms.hackeducation.firebase.DataUserFirebase
+import ru.castprograms.hackeducation.ui.start.authorization.AuthorizationViewModel
+import ru.castprograms.hackeducation.ui.start.registration.RegistrationViewModel
 import ru.castprograms.hackeducation.ui.start.splash.SplashViewModel
 
 class HackApplication : Application() {
@@ -25,6 +27,9 @@ class HackApplication : Application() {
         }
         single { DataUserFirebase(get()) }
         viewModel { SplashViewModel(get()) }
+        viewModel { AuthorizationViewModel(get()) }
+        viewModel { MainViewModel(get()) }
+        viewModel { RegistrationViewModel(get()) }
     }
 
     override fun onCreate() {

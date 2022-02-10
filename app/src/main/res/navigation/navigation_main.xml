@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation_main">
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/coursesFragment">
 
+    <fragment
+        android:id="@+id/coursesFragment"
+        android:name="ru.castprograms.hackeducation.ui.main.courses.CoursesFragment"
+        android:label="CoursesFragment" />
+    <fragment
+        android:id="@+id/topFragment"
+        android:name="ru.castprograms.hackeducation.ui.main.top.TopFragment"
+        android:label="TopFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="ru.castprograms.hackeducation.ui.main.profile.ProfileFragment"
+        android:label="ProfileFragment" />
 </navigation>

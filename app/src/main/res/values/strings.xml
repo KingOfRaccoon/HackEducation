@@ -3,4 +3,9 @@
     <string name="courses">Курсы</string>
     <string name="top">Рейтинг</string>
     <string name="profile">Профиль</string>
+    <string name="enter">Войти</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="dateHint">Дата рождения</string>
+    <string name="regist">Зарегестрироваться</string>
 </resources>

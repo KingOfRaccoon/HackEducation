@@ -47,7 +47,7 @@ class DataUserFirebase(private val firebaseFirestore: FirebaseFirestore) : DataU
         if (currentTeacher.value !is Resource.Success)
             firebaseFirestore.collection(teachers_tag)
                 .document(idTeacher).addSnapshotListener { value, error ->
-                    if (value != null)
+                    if (value != null && value.data != null)
                         value.toObject(Teacher::class.java)?.let {
                             currentTeacher.postValue(Resource.Success(it))
                         }

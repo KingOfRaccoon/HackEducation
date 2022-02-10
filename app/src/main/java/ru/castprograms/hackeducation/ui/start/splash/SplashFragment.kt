@@ -1,23 +1,17 @@
 package ru.castprograms.hackeducation.ui.start.splash
 
-import android.animation.Animator
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.style.RelativeSizeSpan
 import android.view.View
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.marginStart
-import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.transition.TransitionInflater
 import com.jaredrummler.android.widget.AnimatedSvgView.STATE_FINISHED
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.StartActivity
 import ru.castprograms.hackeducation.databinding.FragmentSplashBinding
 import ru.castprograms.hackeducation.tools.Resource
-import yanzhikai.textpath.PathAnimatorListener
+import java.util.*
+import kotlin.concurrent.timerTask
 
 class SplashFragment : Fragment(R.layout.fragment_splash) {
     lateinit var binding: FragmentSplashBinding
@@ -42,11 +36,23 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
             splashViewModel.getTeacher().observe(viewLifecycleOwner) {
                 when (it) {
                     is Resource.Error ->
-                        findNavController()
-                            .navigate(R.id.action_splashFragment_to_registrationFragment)
+                        Timer().schedule(
+                            timerTask {
+                                binding.buttonStart.post {
+                                    findNavController()
+                                        .navigate(R.id.action_splashFragment_to_registrationFragment)
+                                }
+                            }, 300)
+
                     is Resource.Loading -> {}
                     is Resource.Success ->
-                        (requireActivity() as StartActivity).goToMainActivity()
+                        Timer().schedule(
+                            timerTask {
+                                binding.buttonStart.post {
+                                    (requireActivity() as StartActivity).goToMainActivity()
+                                }
+                            }, 300)
+
                 }
             }
         else
@@ -55,5 +61,8 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 
     private fun enableAuthorizationUI() {
         binding.root.transitionToEnd()
+        binding.buttonStart.setOnClickListener {
+            findNavController().navigate(R.id.action_splashFragment_to_instructionFragment)
+        }
     }
 }

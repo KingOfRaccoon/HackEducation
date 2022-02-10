@@ -1,12 +1,10 @@
-package ru.castprograms.hackeducation.ui.start.splash
+package ru.castprograms.hackeducation.ui.start.authorization
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import ru.castprograms.hackeducation.firebase.DataUserFirebase
-import ru.castprograms.hackeducation.tools.Resource
-import ru.castprograms.hackeducation.tools.Teacher
 import ru.castprograms.hackeducation.tools.ViewModelWithGoogleAccount
 
-class SplashViewModel(dataUserFirebase: DataUserFirebase) :
+class AuthorizationViewModel(dataUserFirebase: DataUserFirebase) :
     ViewModelWithGoogleAccount(dataUserFirebase) {
     fun loadPerson(idTeacher: String){
         dataUserFirebase.loadTeacher(idTeacher)
