@@ -8,4 +8,7 @@
     <string name="surname">Фамилия</string>
     <string name="dateHint">Дата рождения</string>
     <string name="regist">Зарегестрироваться</string>
+    <string name="go">Вперёд!</string>
+    <string name="skip">Пропустить</string>
+    <string name="next">Далее</string>
 </resources>

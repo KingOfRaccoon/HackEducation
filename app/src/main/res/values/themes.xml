@@ -11,7 +11,8 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">#79F6F6F6</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -19,8 +20,21 @@
         <item name="android:background">@drawable/background_standard</item>
     </style>
 
+    <style name="Title_in_instruction">
+        <item name="android:textSize">24sp</item>
+        <item name="android:color">@color/c_for_text</item>
+        <item name="android:lineHeight" tools:targetApi="p">32dp</item>
+    </style>
+
+    <style name="BodyText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:color">@color/c_for_text</item>
+        <item name="android:lineHeight" tools:targetApi="p">28dp</item>
+    </style>
+
     <style name="start_button">
-        <item name="android:backgroundTint">#E8DEF8</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:backgroundTint">@color/c_green</item>
+        <item name="android:textColor">@color/c_for_text</item>
+        <item name="android:textSize">16sp</item>
     </style>
 </resources>

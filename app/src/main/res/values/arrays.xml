@@ -7,8 +7,8 @@
     </string-array>
 
     <integer-array name="title_colors">
-        <item>@color/black</item>
-        <item>@color/black</item>
-        <item>@color/black</item>
+        <item>@color/c_for_text</item>
+        <item>@color/c_for_text</item>
+        <item>@color/c_for_text</item>
     </integer-array>
 </resources>

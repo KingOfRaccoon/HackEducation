@@ -42,7 +42,8 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
                                     findNavController()
                                         .navigate(R.id.action_splashFragment_to_registrationFragment)
                                 }
-                            }, 300)
+                            }, 300
+                        )
 
                     is Resource.Loading -> {}
                     is Resource.Success ->
@@ -51,7 +52,8 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
                                 binding.buttonStart.post {
                                     (requireActivity() as StartActivity).goToMainActivity()
                                 }
-                            }, 300)
+                            }, 300
+                        )
 
                 }
             }
@@ -62,7 +64,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     private fun enableAuthorizationUI() {
         binding.root.transitionToEnd()
         binding.buttonStart.setOnClickListener {
-            findNavController().navigate(R.id.action_splashFragment_to_instructionFragment)
+            findNavController().navigate(R.id.action_splashFragment_to_instructionAllFragment)
         }
     }
 }

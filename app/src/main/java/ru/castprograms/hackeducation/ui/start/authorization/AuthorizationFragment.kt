@@ -96,7 +96,7 @@ class AuthorizationFragment : Fragment(R.layout.fragment_authorization) {
             timerTask {
                 binding.enter.post {
                     findNavController()
-                        .navigate(R.id.action_authorizationFragment_to_registrationFragment)
+                        .navigate(R.id.action_instructionAllFragment_to_registrationFragment)
                 }
             }, 300
         )

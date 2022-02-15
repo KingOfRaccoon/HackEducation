@@ -6,13 +6,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layoutDescription="@xml/fragment_authorization_scene">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/about_img_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        style="@style/Title_in_instruction"
+        android:text="Никаких проблем с удаленным образованием"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/text3"
+        style="@style/BodyText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="Бла бла что-то написано про полезность этого курса бла-бла-бла-бла-бла"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title3" />
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/enter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginBottom="25dp"
+        android:backgroundTint="@color/c_green"
+        android:gravity="center"
         app:cardCornerRadius="28dp"
+        app:strokeColor="@color/c_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/endVertical"
         app:layout_constraintStart_toStartOf="@id/startVertical"
@@ -31,11 +68,11 @@
             android:id="@+id/text_enter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:layout_gravity="center"
-            android:text="Войти"/>
+            android:gravity="center"
+            android:text="Войти"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </com.google.android.material.card.MaterialCardView>
 

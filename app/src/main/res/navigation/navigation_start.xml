@@ -18,12 +18,8 @@
             app:popEnterAnim="@anim/left_in"
             app:popExitAnim="@anim/right_in"/>
         <action
-            android:id="@+id/action_splashFragment_to_instructionFragment"
-            app:destination="@id/instructionFragment"
-            app:enterAnim="@anim/left_out"
-            app:exitAnim="@anim/right_out"
-            app:popEnterAnim="@anim/left_in"
-            app:popExitAnim="@anim/right_in"/>
+            android:id="@+id/action_splashFragment_to_instructionAllFragment"
+            app:destination="@id/instructionAllFragment" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -31,29 +27,34 @@
         android:label="RegistrationFragment"
         tools:layout="@layout/fragment_registration"/>
     <fragment
-        android:id="@+id/instructionFragment"
-        android:name="ru.castprograms.hackeducation.ui.start.instruction.InstructionFragment"
+        android:id="@+id/instructionFragment1"
+        android:name="ru.castprograms.hackeducation.ui.start.instruction.InstructionFragment1"
         android:label="InstructionFragment"
-        tools:layout="@layout/fragment_instruction">
+        tools:layout="@layout/fragment_instruction1">
         <action
-            android:id="@+id/action_instructionFragment_to_authorizationFragment"
-            app:destination="@id/authorizationFragment"
-            app:enterAnim="@anim/left_out"
-            app:exitAnim="@anim/right_out"
-            app:popEnterAnim="@anim/left_in"
-            app:popExitAnim="@anim/right_in"/>
+            android:id="@+id/action_instructionFragment1_to_instructionFragment2"
+            app:destination="@id/instructionFragment2" />
     </fragment>
     <fragment
         android:id="@+id/authorizationFragment"
         android:name="ru.castprograms.hackeducation.ui.start.authorization.AuthorizationFragment"
         android:label="AuthorizationFragment"
-        tools:layout="@layout/fragment_authorization">
+        tools:layout="@layout/fragment_authorization"/>
+    <fragment
+        android:id="@+id/instructionFragment2"
+        android:name="ru.castprograms.hackeducation.ui.start.instruction.InstructionFragment2"
+        android:label="InstructionFragment2"
+        tools:layout="@layout/fragment_instruction2">
         <action
-            android:id="@+id/action_authorizationFragment_to_registrationFragment"
-            app:destination="@id/registrationFragment"
-            app:enterAnim="@anim/left_out"
-            app:exitAnim="@anim/right_out"
-            app:popEnterAnim="@anim/left_in"
-            app:popExitAnim="@anim/right_in"/>
+            android:id="@+id/action_instructionFragment2_to_authorizationFragment"
+            app:destination="@id/authorizationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionAllFragment"
+        android:name="ru.castprograms.hackeducation.ui.start.instruction.InstructionAllFragment"
+        android:label="InstructionAllFragment" >
+        <action
+            android:id="@+id/action_instructionAllFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
     </fragment>
 </navigation>

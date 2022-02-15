@@ -10,4 +10,10 @@
 
     <color name="background_standard">#E3EBFF</color>
     <color name="d_background">#202F52</color>
+
+    <color name="c_for_text">#073B4C</color>
+    <color name="c_blue">#277DA1</color>
+    <color name="c_green">#A5FFD6</color>
+    <color name="c_red">#FF686B</color>
+    <color name="c_yellow">#FFD166</color>
 </resources>
