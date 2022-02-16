@@ -2,60 +2,93 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_back_confetti"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/title_registration"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/register_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="54dp"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:text="Регистрация"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nameTextContainer"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="31dp"
-        android:hint="@string/name"
-        app:layout_constraintTop_toBottomOf="@id/title_registration">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nameText"
-            android:inputType="textPersonName|textCapWords"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/surnameTextContainer"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginTop="17dp"
-        android:hint="@string/surname"
+        app:layout_constraintBottom_toTopOf="@+id/nameTextContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextContainer">
+        app:layout_constraintTop_toTopOf="@+id/startVertical"
+        app:cardCornerRadius="50dp"
+        app:contentPaddingRight="24dp"
+        app:contentPaddingLeft="24dp"
+        app:contentPadding="20dp"
+        app:strokeColor="#F1EFEF"
+        app:strokeWidth="7dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/surnameText"
-            android:layout_width="match_parent"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title_registration"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName|textCapWords" />
+            android:layout_gravity="center"
+            android:text="@string/regist"
+            style="@style/Title_in_instruction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/nameTextContainer"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        app:cardCornerRadius="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
+        app:contentPaddingLeft="20dp"
+        app:contentPaddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_container"
+        app:strokeColor="#F1EFEF"
+        app:strokeWidth="7dp">
+
+        <EditText
+            android:id="@+id/nameText"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:inputType="textPersonName|textCapWords"
+            android:hint="@string/name"
+            android:autofillHints="@string/name" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/surnameTextContainer"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        app:cardCornerRadius="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="28dp"
+        app:contentPaddingLeft="20dp"
+        app:contentPaddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextContainer"
+        app:strokeColor="#F1EFEF"
+        app:strokeWidth="7dp">
+
+        <EditText
+            android:id="@+id/surnameText"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:hint="@string/surname"
+            android:inputType="textPersonName|textCapWords"
+            android:autofillHints="@string/surname" />
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/datePicker"
@@ -92,16 +125,32 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.4" />
 
-    <com.google.android.material.button.MaterialButton
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/button_registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/start_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="25dp"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:text="@string/regist"/>
+        android:text="@string/done">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_enter"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/done"
+            style="@style/ButtonText" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

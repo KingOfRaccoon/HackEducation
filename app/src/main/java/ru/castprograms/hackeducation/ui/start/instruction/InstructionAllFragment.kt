@@ -13,8 +13,10 @@ class InstructionAllFragment : Fragment(R.layout.fragment_instruction_all) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentInstructionAllBinding.bind(view)
 
+        val dotsIndicator = binding.dotsIndicator
         val viewPager2 = binding.pager
         viewPager2.adapter = ViewPager2FragmentAdapter(this)
+        dotsIndicator.setViewPager2(viewPager2)
 
     }
 }

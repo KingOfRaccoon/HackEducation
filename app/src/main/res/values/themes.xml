@@ -22,6 +22,7 @@
 
     <style name="Title_in_instruction">
         <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:color">@color/c_for_text</item>
         <item name="android:lineHeight" tools:targetApi="p">32dp</item>
     </style>
@@ -32,9 +33,27 @@
         <item name="android:lineHeight" tools:targetApi="p">28dp</item>
     </style>
 
+    <style name="ButtonText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="start_button">
         <item name="android:backgroundTint">@color/c_green</item>
         <item name="android:textColor">@color/c_for_text</item>
         <item name="android:textSize">16sp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:checkable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="contentPaddingLeft">24dp</item>
+        <item name="contentPaddingRight">24dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardCornerRadius">28dp</item>
+        <item name="cardBackgroundColor">#54626F</item>
+        <item name="android:layout_marginBottom">32dp</item>
+        <item name="android:outlineAmbientShadowColor" tools:targetApi="p">@color/c_for_text</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">@color/c_for_text</item>
     </style>
 </resources>

@@ -32,7 +32,7 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
 
         binding.buttonRegistration.setOnClickListener {
             val googleAccountId = viewModel.getGoogleAccount(requireContext())
-            if (validate() && googleAccountId != null) {
+            if (/*validate() && */googleAccountId != null) {
                 viewModel.registrationTeacher(
                     googleAccountId.id.toString(),
                     Teacher(
@@ -47,29 +47,29 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
         }
     }
 
-    private fun validate(): Boolean {
+    private fun validate() {
         val listCheck = mutableListOf<Boolean>()
-        binding.nameText.text?.let {
-            if (it.trim().isEmpty()) {
-                binding.nameTextContainer.error = "Введите имя"
-                listCheck.add(false)
-            }
-        }
+//        binding.nameText.text?.let {
+//            if (it.trim().isEmpty()) {
+//                binding.nameTextContainer.error = "Введите имя"
+//                listCheck.add(false)
+//            }
+//        }
 
-        binding.surnameText.text?.let {
-            if (it.trim().isEmpty()) {
-                binding.surnameTextContainer.error = "Введите фамилию"
-                listCheck.add(false)
-            }
-        }
+//        binding.surnameText.text?.let {
+//            if (it.trim().isEmpty()) {
+//                binding.surnameTextContainer.error = "Введите фамилию"
+//                listCheck.add(false)
+//            }
+//        }
 
-        binding.date.text?.let {
-            if (it.trim().isEmpty()) {
-                binding.datePicker.error = "Укажите дату рождения"
-                listCheck.add(false)
-            }
-        }
-        return false !in listCheck
+//        binding.date.text?.let {
+//            if (it.trim().isEmpty()) {
+//                binding.datePicker.error = "Укажите дату рождения"
+//                listCheck.add(false)
+//            }
+//        }
+//        return false !in listCheck
     }
 
     private fun createDatePicker(date: (millis: Long) -> Unit): MaterialDatePicker<Long> {
@@ -83,12 +83,12 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
     }
 
     private fun setTextWatchers(){
-        binding.nameText.addTextChangedListener {
-            binding.nameTextContainer.error = null
-        }
-
-        binding.surnameText.addTextChangedListener {
-            binding.surnameTextContainer.error = null
-        }
+//        binding.nameText.addTextChangedListener {
+//            binding.nameTextContainer.error = null
+//        }
+//
+//        binding.surnameText.addTextChangedListener {
+//            binding.surnameTextContainer.error = null
+//        }
     }
 }

@@ -45,11 +45,7 @@
         android:id="@+id/enter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:backgroundTint="@color/c_green"
-        android:gravity="center"
-        app:cardCornerRadius="28dp"
-        app:strokeColor="@color/c_green"
+        style="@style/start_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/endVertical"
         app:layout_constraintStart_toStartOf="@id/startVertical"
@@ -70,9 +66,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Войти"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:text="@string/enter"
+            style="@style/ButtonText" />
 
     </com.google.android.material.card.MaterialCardView>
 
