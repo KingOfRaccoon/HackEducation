@@ -3,6 +3,7 @@ package ru.castprograms.hackeducation.ui.start.registration
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.View
+import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
@@ -32,7 +33,7 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
 
         binding.buttonRegistration.setOnClickListener {
             val googleAccountId = viewModel.getGoogleAccount(requireContext())
-            if (/*validate() && */googleAccountId != null) {
+            if (validate() && googleAccountId != null) {
                 viewModel.registrationTeacher(
                     googleAccountId.id.toString(),
                     Teacher(
@@ -47,29 +48,29 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
         }
     }
 
-    private fun validate() {
+    private fun validate(): Boolean {
         val listCheck = mutableListOf<Boolean>()
-//        binding.nameText.text?.let {
-//            if (it.trim().isEmpty()) {
-//                binding.nameTextContainer.error = "Введите имя"
-//                listCheck.add(false)
-//            }
-//        }
-
-//        binding.surnameText.text?.let {
-//            if (it.trim().isEmpty()) {
-//                binding.surnameTextContainer.error = "Введите фамилию"
-//                listCheck.add(false)
-//            }
-//        }
-
-//        binding.date.text?.let {
-//            if (it.trim().isEmpty()) {
-//                binding.datePicker.error = "Укажите дату рождения"
-//                listCheck.add(false)
-//            }
-//        }
-//        return false !in listCheck
+        binding.nameText.text?.let {
+            if (it.trim().isEmpty()) {
+                binding.errorName.visibility = View.VISIBLE
+                binding.errorName.text = "Введите имя"
+                listCheck.add(false)
+            }
+        }
+        binding.surnameText.text?.let {
+            if (it.trim().isEmpty()) {
+                binding.errorSurname.visibility = View.VISIBLE
+                binding.errorSurname.text = "Введите фамилию"
+                listCheck.add(false)
+            }
+        }
+        binding.date.text?.let {
+            if (it.trim().isEmpty()) {
+                binding.datePicker.error = "Укажите дату рождения"
+                listCheck.add(false)
+            }
+        }
+        return false !in listCheck
     }
 
     private fun createDatePicker(date: (millis: Long) -> Unit): MaterialDatePicker<Long> {
@@ -82,7 +83,7 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
         return datePicker
     }
 
-    private fun setTextWatchers(){
+    private fun setTextWatchers() {
 //        binding.nameText.addTextChangedListener {
 //            binding.nameTextContainer.error = null
 //        }
