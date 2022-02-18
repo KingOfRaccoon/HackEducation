@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
+import ru.castprograms.hackeducation.tools.ui.MirroredDrawable
 
 class CustomItemDecorator(private val dividerDrawable: Drawable) : RecyclerView.ItemDecoration() {
     override fun getItemOffsets(
@@ -29,15 +30,20 @@ class CustomItemDecorator(private val dividerDrawable: Drawable) : RecyclerView.
         parent.children.forEach { view ->
             val position = parent.getChildAdapterPosition(view)
                 .let { if (it == RecyclerView.NO_POSITION) return else it }
-            if (parent.adapter != null && position < parent.adapter!!.itemCount- 1) {
+            if (parent.adapter != null && position < parent.adapter!!.itemCount - 1) {
                 val left = view.right * 0.175
                 val bottom = view.top
                 val top = bottom - dividerDrawable.intrinsicHeight
                 val right = view.right * 0.825
-//                    (parent.getChildAt(position + 1).left
-//                            + parent.getChildAt(position + 1).right) / 2
                 dividerDrawable.bounds = Rect(left.toInt(), top, right.toInt(), bottom)
-                dividerDrawable.draw(c)
+                c.save(); //Saving the canvas and later restoring it so only this image will be rotated.
+                if (position % 2 != 0)
+                    MirroredDrawable(dividerDrawable).apply {
+                        bounds = dividerDrawable.bounds
+                    }.draw(c)
+                else
+                    dividerDrawable.draw(c)
+                c.restore();
             }
         }
     }

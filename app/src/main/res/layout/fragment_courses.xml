@@ -1,14 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:id="@+id/motion_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layoutDescription="@xml/fragment_courses_scene">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/start_recycler_courses"
+        app:layout_constraintGuide_percent="0.11"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/end_recycler_courses"
+        app:layout_constraintGuide_percent="0.89"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_courses"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"/>
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/start_recycler_courses"
+        app:layout_constraintEnd_toEndOf="@id/end_recycler_courses"
+        android:orientation="vertical"
+        app:reverseLayout="true"
+        tools:itemCount="25"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_recycler"
+        style="@style/button_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/recycler_courses"
+        app:layout_constraintStart_toStartOf="@id/recycler_courses"
+        android:layout_margin="12dp"
+        app:icon="@drawable/zoom_out_map" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/recycler_courses"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="7dp"
+        app:cardCornerRadius="52dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_user"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/test_image_for_user"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/end_image_user"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="12dp"
+                android:layout_marginVertical="11dp"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_image_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25"
+                android:layout_marginStart="12dp"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_name_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/image_user"
+                app:layout_constraintStart_toEndOf="@id/image_user"
+                android:lines="2"
+                android:layout_marginStart="16dp"
+                android:text="Людмила\nГригорьевна"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                app:layout_constraintVertical_chainStyle="spread_inside"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_status_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Любитель"
+                app:layout_constraintTop_toBottomOf="@id/text_name_user"
+                app:layout_constraintBottom_toBottomOf="@id/image_user"
+                app:layout_constraintStart_toStartOf="@id/text_name_user"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="7dp"
+                style="@style/button_card"
+                app:icon="@drawable/settings"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_show_all_skills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/buttons"
+        android:layout_marginBottom="20dp"
+        android:text="@string/all_skills"
+        app:icon="@drawable/arrow_up"
+        app:iconSize="24dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:iconGravity="textEnd"/>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

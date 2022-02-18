@@ -16,19 +16,20 @@ class MapCourseAdapter: RecyclerView.Adapter<MapCourseAdapter.MapCourseViewHolde
     }
 
     override fun onBindViewHolder(holder: MapCourseViewHolder, position: Int) {
-        holder.bind()
+        holder.bind(position)
+        holder.setIsRecyclable(false)
     }
 
     override fun getItemCount() = 20
 
     inner class MapCourseViewHolder(view: View): RecyclerView.ViewHolder(view){
         private val binding = ItemMapCourseBinding.bind(view)
-        fun bind(){
-            changePlace()
+        fun bind(position: Int){
+            changePlace(position)
         }
 
-        fun changePlace(){
-            if (adapterPosition % 2 != 0){
+        private fun changePlace(position: Int){
+            if (position % 2 == 0){
                 binding.startImageItem.visibility = View.GONE
                 binding.startTextNameItem.visibility = View.GONE
                 binding.endImageItem.visibility = View.VISIBLE
