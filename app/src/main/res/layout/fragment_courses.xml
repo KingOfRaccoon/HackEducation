@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/motion_layout"
+    android:background="@drawable/ic_back_confetti"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layoutDescription="@xml/fragment_courses_scene">
 
@@ -31,6 +32,7 @@
         app:layout_constraintStart_toStartOf="@id/start_recycler_courses"
         app:layout_constraintEnd_toEndOf="@id/end_recycler_courses"
         android:orientation="vertical"
+        android:background="@color/white"
         app:reverseLayout="true"
         tools:itemCount="25"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
@@ -51,6 +53,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/recycler_courses"
         android:layout_marginTop="16dp"
+        style="@style/start_button"
+        android:backgroundTint="@color/white"
+        app:contentPaddingRight="2dp"
+        app:contentPaddingLeft="2dp"
         android:layout_marginHorizontal="7dp"
         app:cardCornerRadius="52dp">
 
@@ -90,7 +96,7 @@
                 android:layout_marginStart="16dp"
                 android:text="Людмила\nГригорьевна"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 app:layout_constraintVertical_chainStyle="spread_inside"/>
 
             <com.google.android.material.textview.MaterialTextView
@@ -117,20 +123,31 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_show_all_skills"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/container_button_show_all_skills"
+        style="@style/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="32dp"
+        app:contentPadding="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        style="@style/buttons"
-        android:layout_marginBottom="20dp"
-        android:text="@string/all_skills"
-        app:icon="@drawable/arrow_up"
-        app:iconSize="24dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:iconGravity="textEnd"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_show_all_skills"
+            style="@style/buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_skills"
+            android:textSize="16sp"
+            app:icon="@drawable/arrow_up"
+            app:iconGravity="textEnd"
+            app:iconSize="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

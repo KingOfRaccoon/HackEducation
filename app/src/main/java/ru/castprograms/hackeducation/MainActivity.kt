@@ -20,13 +20,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        navHostController =
-            supportFragmentManager.findFragmentById(R.id.container_view)?.findNavController()!!
-        setupActionBarWithNavController(
-            navHostController,
-            AppBarConfiguration(binding.bnv.menu)
-        )
-        binding.bnv.setupWithNavController(navHostController)
+//        navHostController =
+//            supportFragmentManager.findFragmentById(R.id.container_view)?.findNavController()!!
+//        setupActionBarWithNavController(
+//            navHostController,
+//            AppBarConfiguration(binding.bnv.menu)
+//        )
+//        binding.bnv.setupWithNavController(navHostController)
         viewModel.getGoogleAccount(this)?.id?.let {
             viewModel.loadPerson(it)
         }
