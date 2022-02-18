@@ -62,6 +62,19 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <TextView
+        android:id="@+id/errorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginStart="20dp"
+        android:text="dssf"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:textColor="@color/c_red"
+        app:layout_constraintStart_toStartOf="@+id/nameTextContainer"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextContainer" />
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/surnameTextContainer"
         android:layout_width="match_parent"
@@ -90,6 +103,19 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <TextView
+        android:id="@+id/errorSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginStart="20dp"
+        android:text="dssf"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:textColor="@color/c_red"
+        app:layout_constraintStart_toStartOf="@+id/surnameTextContainer"
+        app:layout_constraintTop_toBottomOf="@+id/surnameTextContainer" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/datePicker"
         android:layout_width="0dp"
@@ -97,25 +123,25 @@
         android:lines="2"
         android:layout_height="wrap_content"
         app:autoSizeTextType="uniform"
-        android:layout_marginEnd="31dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginTop="17dp"
         android:text="@string/dateHint"
-        android:textStyle="bold"
+        app:iconTint="@color/c_blue"
+        style="@style/start_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/start_button_birthday"
         app:layout_constraintTop_toBottomOf="@id/surnameTextContainer" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/date"
+        style="@style/BodyText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:textStyle="normal"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/datePicker"
-        app:layout_constraintEnd_toEndOf="@id/start_button_birthday"
+        android:textSize="16dp"
+        android:layout_marginEnd="14dp"
         app:layout_constraintBottom_toBottomOf="@id/datePicker"
+        app:layout_constraintEnd_toEndOf="@id/start_button_birthday"
+        app:layout_constraintTop_toTopOf="@id/datePicker"
         tools:text="14.04.2003" />
 
     <androidx.constraintlayout.widget.Guideline

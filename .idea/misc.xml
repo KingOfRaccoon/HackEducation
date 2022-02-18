@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/drawable/circle.xml" value="0.2265" />
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/drawable/green_oval.xml" value="0.2065" />
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/drawable/ic_back_confetti.xml" value="0.2265" />
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/fragment_authorization.xml" value="0.264" />
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/fragment_instruction.xml" value="0.22826086956521738" />
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/fragment_instruction1.xml" value="0.264" />
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/fragment_instruction2.xml" value="0.264" />
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/fragment_instruction3.xml" value="0.27447916666666666" />
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/fragment_instruction_all.xml" value="0.264" />
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/fragment_registration.xml" value="0.4" />
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/fragment_splash.xml" value="0.4" />
         <entry key="app/src/main/res/drawable-v24/background_button.xml" value="0.186" />
         <entry key="app/src/main/res/drawable-v24/calendar.xml" value="0.186" />
         <entry key="app/src/main/res/drawable-v24/gradient_circle.xml" value="0.186" />
