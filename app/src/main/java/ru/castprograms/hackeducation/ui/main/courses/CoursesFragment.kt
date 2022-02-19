@@ -1,16 +1,12 @@
 package ru.castprograms.hackeducation.ui.main.courses
 
 import android.os.Bundle
-import android.view.MotionEvent
+import android.util.TypedValue
 import android.view.View
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.FragmentCoursesBinding
-import kotlin.math.ceil
-import kotlin.math.round
 
 class CoursesFragment : Fragment(R.layout.fragment_courses) {
 
@@ -18,6 +14,13 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentCoursesBinding.bind(view)
         binding.recyclerCourses.adapter = MapCourseAdapter()
+        binding.buttonRecycler.setOnClickListener {
+            if (binding.root.currentState == R.id.start_courses)
+                binding.root.transitionToEnd()
+            else
+                binding.root.transitionToStart()
+        }
+
         binding.root.setTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionStarted(
                 motionLayout: MotionLayout?,
@@ -34,11 +37,18 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
             ) {
                 if (startId == R.id.start_courses)
                     removeTextFromButton(binding, progress)
+                else
+                    removeTextFromButton(binding, 1 - progress)
             }
 
             override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
                 binding.recyclerCourses.layoutManager.let { it as CoursesLinearLayoutManager }
                     .isScrollEnabled = currentId != R.id.start_courses
+
+                if (currentId == R.id.start_courses)
+                    removeTextFromButton(binding, 0f)
+                else
+                    removeTextFromButton(binding, 1f)
             }
 
             override fun onTransitionTrigger(
@@ -73,9 +83,19 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
 
     private fun removeTextFromButton(binding: FragmentCoursesBinding, progress: Float) {
         val textButton = requireContext().resources.getString(R.string.all_skills)
-        binding.buttonShowAllSkills.let {
-            it.textSize = 18 * (1 - progress)
-            it.text = textButton.take(ceil(textButton.length * (1 - progress)).toInt())
+//        binding.imageButtonShowAllSkills.crossfade = progress
+        binding.containerRecyclerCourses.cardElevation = 10 * (1 - progress)
+        binding.containerRecyclerCourses.radius = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            30f,
+            requireActivity().resources.displayMetrics) * (1 - progress)
+        binding.buttonRecycler.elevation = 10 * (1 - progress)
+        binding.textButtonShowAllSkills.let {
+//            it.scaleX = (1 - progress)
+//            it.scaleY = (1 - progress)
+//            it.wi = ceil(1 - progress).toInt() * widthTextButton
+//            it.textSize = 18 * (1 - progress)
+//            it.text = textButton.take(ceil(textButton.length * (1 - progress)).toInt())
         }
     }
 }

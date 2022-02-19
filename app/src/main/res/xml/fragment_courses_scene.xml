@@ -4,11 +4,54 @@
     xmlns:motion="http://schemas.android.com/tools">
 
     <ConstraintSet android:id="@+id/start_courses">
+        <Constraint
+            android:id="@+id/container_recycler_courses"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/end_recycler_courses"
+            app:layout_constraintStart_toStartOf="@id/start_recycler_courses"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Constraint
+            android:id="@+id/card_user"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="7dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/container_recycler_courses"
+            android:alpha="1"
+            android:layout_marginTop="16dp" />
+
+        <Constraint
+            android:id="@+id/container_button_show_all_skills"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/button_recycler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/container_recycler_courses"
+            app:layout_constraintStart_toStartOf="@id/container_recycler_courses"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="12dp">
+            <CustomAttribute
+                app:attributeName="crossfade"
+                app:customFloatValue="0"/>
+        </Constraint>
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end_courses">
         <Constraint
-            android:id="@+id/recycler_courses"
+            android:id="@+id/container_recycler_courses"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -18,29 +61,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="7dp"
-            app:layout_constraintTop_toBottomOf="@id/recycler_courses"
+            app:layout_constraintTop_toBottomOf="parent"
             android:alpha="0"
             android:layout_marginTop="16dp" />
 
         <Constraint
             android:id="@+id/button_recycler"
-            android:alpha="0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/recycler_courses"
-            app:layout_constraintStart_toStartOf="@id/recycler_courses"
-            android:layout_margin="20dp"/>
+            app:layout_constraintBottom_toBottomOf="@id/container_recycler_courses"
+            app:layout_constraintStart_toStartOf="@id/container_recycler_courses"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp">
+            <CustomAttribute
+                app:attributeName="crossfade"
+                app:customFloatValue="1"/>
+        </Constraint>
 
         <Constraint
-            android:id="@id/button_show_all_skills"
+            android:id="@+id/container_button_show_all_skills"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="20dp"
-            style="@style/button_card"
-            app:icon="@drawable/close">
+            android:alpha="0"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/button_recycler"
+            app:layout_constraintTop_toTopOf="@id/button_recycler">
         </Constraint>
     </ConstraintSet>
 
@@ -48,7 +94,7 @@
         app:constraintSetEnd="@id/end_courses"
         app:constraintSetStart="@id/start_courses">
         <OnSwipe
-            app:touchAnchorId="@id/recycler_courses"
+            app:touchAnchorId="@id/container_recycler_courses"
             app:onTouchUp="decelerateAndComplete"
             app:dragDirection="dragUp"
             app:autoCompleteMode="continuousVelocity" />

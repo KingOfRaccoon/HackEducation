@@ -63,7 +63,7 @@
         <item name="iconTint">@color/c_blue</item>
     </style>
 
-    <style name="button_card" parent="Widget.Material3.Button.TextButton.Dialog.Icon">
+    <style name="button_card">
         <item name="android:backgroundTint">@color/c_green</item>
         <item name="iconTint">@color/c_blue</item>
         <item name="android:insetLeft">0dp</item>
@@ -71,7 +71,6 @@
         <item name="android:insetRight">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="iconPadding">0dp</item>
-        <item name="android:padding">0dp</item>
         <item name="iconGravity">textStart</item>
         <item name="iconSize">30dp</item>
     </style>
