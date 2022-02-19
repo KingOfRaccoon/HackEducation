@@ -35,6 +35,7 @@ class RecyclerViewTop(private val value: List<Teacher>?) :
                 .load(teacher.img)
                 .transform(CenterCrop())
                 .into(binding.imageTeacherItem)
+            binding.cPosition.text = (position + 1).toString()
         }
     }
 }
