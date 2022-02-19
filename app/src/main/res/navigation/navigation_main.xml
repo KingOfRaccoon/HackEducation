@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/coursesFragment"
         android:name="ru.castprograms.hackeducation.ui.main.courses.CoursesFragment"
-        android:label="CoursesFragment" />
+        android:label="CoursesFragment" >
+        <action
+            android:id="@+id/action_coursesFragment_to_topFragment"
+            app:destination="@id/topFragment" />
+    </fragment>
     <fragment
         android:id="@+id/topFragment"
         android:name="ru.castprograms.hackeducation.ui.main.top.TopFragment"

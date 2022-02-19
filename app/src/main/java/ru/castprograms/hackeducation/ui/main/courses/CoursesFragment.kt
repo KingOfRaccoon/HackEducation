@@ -5,6 +5,7 @@ import android.util.TypedValue
 import android.view.View
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.FragmentCoursesBinding
 
@@ -73,6 +74,11 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
         binding.recyclerCourses.addItemDecoration(
             CustomItemDecorator(requireContext().getDrawable(R.drawable.vector)!!)
         )
+
+        binding.fabTop.setOnClickListener{
+            findNavController().navigate(R.id.action_coursesFragment_to_topFragment)
+        }
+
 //        binding.recyclerCourses.addOnScrollListener(object: RecyclerView.OnScrollListener(){
 //            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
 //                super.onScrolled(recyclerView, dx, dy)
