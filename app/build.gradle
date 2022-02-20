@@ -53,6 +53,8 @@ dependencies {
     implementation 'io.insert-koin:koin-android:3.1.4'
     implementation 'com.google.android.gms:play-services-auth:20.1.0'
 
+    implementation 'at.wirecube:additive_animations:1.9.3'
+
     implementation 'com.jaredrummler:animated-svg-view:1.0.6'
     implementation 'com.tbuonomo:dotsindicator:4.2'
     implementation 'de.hdodenhof:circleimageview:3.1.0'

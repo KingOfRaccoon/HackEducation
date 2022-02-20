@@ -1,36 +1,43 @@
 package ru.castprograms.hackeducation.ui.main.top
 
 import android.os.Bundle
+import android.view.FrameMetrics.ANIMATION_DURATION
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import at.wirecube.additiveanimations.additive_animator.AdditiveAnimator
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.FragmentTopBinding
+import ru.castprograms.hackeducation.tools.Resource
 import ru.castprograms.hackeducation.tools.Teacher
 
 class TopFragment: Fragment(R.layout.fragment_top) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentTopBinding.bind(view)
+        val viewModel: TopViewModel by viewModel()
 
-        val t_list : List<Teacher> = listOf(
-            Teacher("https://www.big-ben.ru/sites/default/files/reviews/flat-faces-icons-circle-woman-7_17.png", "Elena", "Sergeevna"),
-            Teacher("https://banner2.cleanpng.com/20180430/jge/kisspng-computer-icons-font-awesome-hamburger-button-5ae723a4ebfc72.3953800615250973809666.jpg", "ALena", "Vasilevna"),
-            Teacher("https://yt3.ggpht.com/ytc/AAUvwngn8SLWqd9pJjSKeeKWjpKzYA0imRDlQbi6yWf8=s900-c-k-c0x00ffffff-no-rj", "Sergey", "Petrovich"),
-            Teacher("https://www.big-ben.ru/sites/default/files/reviews/flat-faces-icons-circle-woman-7_17.png", "Elena", "Sergeevna"),
-            Teacher("https://banner2.cleanpng.com/20180430/jge/kisspng-computer-icons-font-awesome-hamburger-button-5ae723a4ebfc72.3953800615250973809666.jpg", "ALena", "Vasilevna"),
-            Teacher("https://yt3.ggpht.com/ytc/AAUvwngn8SLWqd9pJjSKeeKWjpKzYA0imRDlQbi6yWf8=s900-c-k-c0x00ffffff-no-rj", "Sergey", "Petrovich"),
-            Teacher("https://www.big-ben.ru/sites/default/files/reviews/flat-faces-icons-circle-woman-7_17.png", "Elena", "Sergeevna"),
-            Teacher("https://banner2.cleanpng.com/20180430/jge/kisspng-computer-icons-font-awesome-hamburger-button-5ae723a4ebfc72.3953800615250973809666.jpg", "ALena", "Vasilevna"),
-            Teacher("https://yt3.ggpht.com/ytc/AAUvwngn8SLWqd9pJjSKeeKWjpKzYA0imRDlQbi6yWf8=s900-c-k-c0x00ffffff-no-rj", "Sergey", "Petrovich"),
-        )
-
-        binding.recyclerViewTop.adapter = RecyclerViewTop(t_list)
+        val adapter = RecyclerViewTop()
+        binding.recyclerViewTop.adapter = adapter
         binding.recyclerViewTop.layoutManager = LinearLayoutManager(requireContext())
 
         binding.backToCourseFromTop.setOnClickListener {
             findNavController().navigate(R.id.action_topFragment_to_coursesFragment)
+        }
+        viewModel.getAllTeachers().observe(viewLifecycleOwner){
+            when(it){
+                is Resource.Error -> { }
+
+                is Resource.Loading -> { }
+
+                is Resource.Success -> {
+                    if (it.data != null){
+                        adapter.teachers = it.data.toMutableList()
+                    }
+                }
+            }
         }
     }
 }

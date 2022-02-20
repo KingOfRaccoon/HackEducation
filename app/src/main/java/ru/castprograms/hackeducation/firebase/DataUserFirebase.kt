@@ -27,6 +27,17 @@ class DataUserFirebase(private val firebaseFirestore: FirebaseFirestore) : DataU
         return mutableLiveData
     }
 
+    override fun getAllTeachers(): MutableLiveData<Resource<List<Teacher>>> {
+        val mutableLiveData = MutableLiveData<Resource<List<Teacher>>>(Resource.Loading())
+        firebaseFirestore.collection(teachers_tag).addSnapshotListener { value, error ->
+            if (value != null)
+                mutableLiveData.postValue(Resource.Success(value.toObjects(Teacher::class.java)))
+            else
+                mutableLiveData.postValue(Resource.Error(error?.message.toString()))
+        }
+        return mutableLiveData
+    }
+
     override fun addTeacher(
         idTeacher: String,
         teacher: Teacher
@@ -62,6 +73,8 @@ class DataUserFirebase(private val firebaseFirestore: FirebaseFirestore) : DataU
             googleAccount = GoogleSignIn.getLastSignedInAccount(context)
         return googleAccount
     }
+
+
 
     companion object {
         const val teachers_tag = "teachers"

@@ -11,8 +11,10 @@ import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.ItemTopBinding
 import ru.castprograms.hackeducation.tools.Teacher
 
-class RecyclerViewTop(private val value: List<Teacher>?) :
+class RecyclerViewTop() :
     RecyclerView.Adapter<RecyclerViewTop.ViewHolderRealize>() {
+
+    var teachers = mutableListOf<Teacher>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderRealize {
         val view = LayoutInflater.from(parent.context)
@@ -22,15 +24,15 @@ class RecyclerViewTop(private val value: List<Teacher>?) :
     }
 
     override fun onBindViewHolder(holder: ViewHolderRealize, position: Int) {
-        holder.onBing(value!![position])
+        holder.onBing(teachers[position])
     }
 
-    override fun getItemCount(): Int = value!!.size
+    override fun getItemCount(): Int = teachers.size
 
     inner class ViewHolderRealize(item: View) : RecyclerView.ViewHolder(item) {
         val binding = ItemTopBinding.bind(itemView)
         fun onBing(teacher: Teacher) {
-            binding.textNameTeacherItem.text = teacher.fullName()
+            binding.textNameTeacherItem.text = teachers[position].fullName() //????? or teacher.fullName() ????
             Glide.with(itemView.context)
                 .load(teacher.img)
                 .transform(CenterCrop())
