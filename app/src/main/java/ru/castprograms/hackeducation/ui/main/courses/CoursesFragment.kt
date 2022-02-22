@@ -75,6 +75,10 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
             CustomItemDecorator(requireContext().getDrawable(R.drawable.vector)!!)
         )
 
+        binding.containerButtonShowAllSkills.setOnClickListener {
+            findNavController().navigate(R.id.action_coursesFragment_to_skillsFragment)
+        }
+
         binding.fabTop.setOnClickListener{
             findNavController().navigate(R.id.action_coursesFragment_to_topFragment)
         }
