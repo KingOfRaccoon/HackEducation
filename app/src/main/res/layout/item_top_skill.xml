@@ -2,48 +2,49 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_skill"
-        style="@style/start_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="2dp"
         android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="52dp"
         app:contentPaddingLeft="2dp"
         app:contentPaddingRight="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeWidth="0dp">
 
         <LinearLayout
-            android:id="@+id/container_card"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_skill_item"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginStart="8dp"
                 android:src="#F1EFEF" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:gravity="center_vertical">
+                android:layout_marginEnd="8dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -53,32 +54,33 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/skill_name"
                         style="@style/ButtonText"
-                        android:textSize="12dp"
-                        android:layout_marginBottom="4dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Название навыка" />
+                        android:layout_marginBottom="4dp"
+                        android:text="Название навыка"
+                        android:textSize="12dp" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/skill_proc"
                         style="@style/ButtonText"
-                        android:textSize="12dp"
-                        android:layout_marginBottom="4dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:text="40%" />
+                        android:layout_marginBottom="4dp"
+                        android:text="40%"
+                        android:textSize="12dp" />
 
                 </RelativeLayout>
 
                 <com.google.android.material.progressindicator.LinearProgressIndicator
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:trackThickness="10dp"
                     android:progress="40"
+                    android:id="@+id/skill_top_proc"
+                    app:indicatorColor="@color/c_blue"
                     app:trackColor="#80277DA1"
                     app:trackCornerRadius="30dp"
-                    app:indicatorColor="@color/c_blue" />
+                    app:trackThickness="10dp" />
 
             </LinearLayout>
 
