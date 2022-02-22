@@ -13,7 +13,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <Constraint
-            android:id="@+id/card_top"
+            android:id="@+id/card_user"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="7dp"
@@ -22,37 +22,6 @@
             app:layout_constraintTop_toBottomOf="@id/container_recycler_courses"
             android:alpha="1"
             android:layout_marginTop="16dp" />
-
-        <Constraint
-            android:id="@+id/item_skill_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:alpha="1"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_skill">
-        </Constraint>
-
-        <Constraint
-            android:id="@+id/item_skill_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:alpha="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_skill_1">
-        </Constraint>
-
-        <Constraint
-            android:id="@+id/item_skill_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:alpha="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_skill_2">
-        </Constraint>
 
         <Constraint
             android:id="@+id/container_button_show_all_skills"
@@ -90,7 +59,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <Constraint
-            android:id="@+id/card_skill"
+            android:id="@+id/card_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="7dp"
@@ -120,6 +89,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="parent">
+        </Constraint>
+
+
+        <Constraint
+            android:id="@+id/item_skill_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_user">
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/item_skill_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_skill_1">
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/item_skill_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_skill_2">
         </Constraint>
     </ConstraintSet>
 

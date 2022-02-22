@@ -1,11 +1,15 @@
 package ru.castprograms.hackeducation.ui.main.courses
 
+import android.app.Activity
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.theartofdev.edmodo.cropper.CropImage
+import com.theartofdev.edmodo.cropper.CropImageView
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.FragmentCoursesBinding
 

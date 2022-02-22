@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_back_confetti"
-    android:clipToPadding="false"
     app:layoutDescription="@xml/fragment_courses_scene">
 
     <androidx.constraintlayout.widget.Guideline
@@ -77,7 +76,7 @@
         tools:targetApi="p" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_skill"
+        android:id="@+id/card_user"
         style="@style/start_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -161,7 +160,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_skill"
+        app:layout_constraintTop_toBottomOf="@+id/card_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -236,14 +235,5 @@
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:backgroundTint="@color/c_blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
