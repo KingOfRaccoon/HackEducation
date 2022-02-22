@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_user"
+        android:id="@+id/card_top"
         style="@style/start_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
