@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.FragmentSkillsBinding
-import ru.castprograms.hackeducation.ui.main.top.RecyclerViewTop
 
 class SkillsFragment : Fragment(R.layout.fragment_skills) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
