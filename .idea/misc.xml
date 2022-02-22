@@ -20,8 +20,10 @@
         <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/fragment_registration.xml" value="0.4" />
         <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/fragment_splash.xml" value="0.4" />
         <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/fragment_top.xml" value="0.264" />
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/item_main_skill.xml" value="0.4" />
         <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/item_map_course.xml" value="0.27447916666666666" />
         <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/item_top.xml" value="0.4" />
+        <entry key="..\:/StudioProjects/HackEducation/app/src/main/res/layout/item_top_skill.xml" value="0.4" />
         <entry key="app/src/main/res/drawable-v24/background_button.xml" value="0.186" />
         <entry key="app/src/main/res/drawable-v24/calendar.xml" value="0.186" />
         <entry key="app/src/main/res/drawable-v24/gradient_circle.xml" value="0.186" />
