@@ -74,4 +74,9 @@
         <item name="iconGravity">textStart</item>
         <item name="iconSize">30dp</item>
     </style>
+
+    <style name="MiddleBackground">
+        <item name="android:background">@drawable/background_alert_dialog</item>
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
 </resources>

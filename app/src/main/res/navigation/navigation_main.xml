@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_coursesFragment_to_topFragment"
             app:destination="@id/topFragment" />
+        <action
+            android:id="@+id/action_coursesFragment_to_createCourseFragment"
+            app:destination="@id/createCourseFragment" />
     </fragment>
     <fragment
         android:id="@+id/topFragment"
@@ -25,4 +28,8 @@
         android:id="@+id/profileFragment"
         android:name="ru.castprograms.hackeducation.ui.main.profile.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/createCourseFragment"
+        android:name="ru.castprograms.hackeducation.ui.main.createcourse.CreateCourseFragment"
+        android:label="CreateCourseFragment" />
 </navigation>

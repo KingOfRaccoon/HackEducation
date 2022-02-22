@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="6dp"
+    android:layout_marginBottom="5dp"
+    android:backgroundTint="@color/c_green"
+    android:background="@drawable/background_for_path_header">
+
+    <net.igenius.customcheckbox.CustomCheckBox
+        android:id="@+id/checkboxThemeTitle"
+        android:layout_width="wrap_content"
+        app:color_unchecked_stroke="@color/c_red"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/textThemeNumber"
+        app:layout_constraintBottom_toBottomOf="@id/textThemeNumber"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textThemeNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/checkboxThemeTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="13dp"
+        android:text="Тема 1"
+        android:textStyle="bold"
+        android:textSize="24sp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textNameTheme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/checkboxThemeTitle"
+        app:layout_constraintStart_toStartOf="@id/checkboxThemeTitle"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:textSize="22sp"
+        android:text="Программы для проведения видеоконференций"
+        app:layout_constraintEnd_toStartOf="@id/start_image_icon"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_image_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="20dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/test_image_for_course"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/start_image_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

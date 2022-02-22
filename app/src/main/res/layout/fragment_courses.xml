@@ -210,13 +210,4 @@
         android:id="@+id/fab"
         android:layout_margin="20dp"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="@color/c_blue"
-        android:layout_margin="20dp"
-        android:id="@+id/fab_top" />
-
 </androidx.constraintlayout.motion.widget.MotionLayout>

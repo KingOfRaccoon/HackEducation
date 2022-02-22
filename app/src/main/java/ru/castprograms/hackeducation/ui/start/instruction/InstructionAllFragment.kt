@@ -1,6 +1,5 @@
 package ru.castprograms.hackeducation.ui.start.instruction
 
-import ViewPager2FragmentAdapter
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment

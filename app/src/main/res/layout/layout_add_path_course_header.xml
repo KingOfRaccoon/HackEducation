@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_success"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:padding="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/success_dialog"
+        style="@style/MiddleBackground"
+        android:paddingBottom="40dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_title_alert_dialog"
+            android:backgroundTint="@color/colorPrimary"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:text="@string/add_header"/>
+
+        <ImageView
+            android:id="@+id/image_title"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintBottom_toBottomOf="@id/text_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_title"
+            android:src="@drawable/add"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_select_for_theme"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toBottomOf="@id/text_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/test_image_for_course" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/themeNumberTextContainer"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            app:cardCornerRadius="54dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="40dp"
+            app:contentPaddingLeft="20dp"
+            app:contentPaddingRight="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_select_for_theme"
+            app:strokeColor="#F1EFEF"
+            app:strokeWidth="7dp">
+
+            <EditText
+                android:id="@+id/themeNumberText"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:inputType="number"
+                android:hint="@string/number_of_theme"
+                android:autofillHints="@string/number_of_theme" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/errorThemeNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginStart="20dp"
+            android:text="dssf"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:textColor="@color/c_red"
+            app:layout_constraintStart_toStartOf="@+id/themeNumberTextContainer"
+            app:layout_constraintTop_toBottomOf="@+id/themeNumberTextContainer" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/themeNameTextContainer"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            app:cardCornerRadius="54dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="40dp"
+            app:contentPaddingLeft="20dp"
+            app:contentPaddingRight="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/themeNumberTextContainer"
+
+            app:strokeColor="#F1EFEF"
+            app:strokeWidth="7dp">
+
+            <EditText
+                android:id="@+id/themeNameText"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:inputType="textCapSentences"
+                android:hint="@string/name_of_theme"
+                android:autofillHints="@string/name_of_theme" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/errorNameTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginStart="20dp"
+            android:text="dssf"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:textColor="@color/c_red"
+            app:layout_constraintStart_toStartOf="@+id/themeNameTextContainer"
+            app:layout_constraintTop_toBottomOf="@+id/themeNameTextContainer" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/button"
+        android:layout_marginStart="40dp"
+        android:text="@string/create"
+        android:layout_marginEnd="40dp"
+        app:backgroundTint="@color/teal_200"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/success_dialog"
+        app:layout_constraintTop_toBottomOf="@id/success_dialog"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

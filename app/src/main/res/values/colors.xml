@@ -16,4 +16,9 @@
     <color name="c_green">#A5FFD6</color>
     <color name="c_red">#FF686B</color>
     <color name="c_yellow">#FFD166</color>
+
+    <color name="color_reply">#c4c4c4</color>
+    <color name="colorPrimary">#008577</color>
+
+    <color name="norm_black">#353535</color>
 </resources>

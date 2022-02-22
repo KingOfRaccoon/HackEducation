@@ -1,14 +1,8 @@
-import android.content.Context
+package ru.castprograms.hackeducation.ui.start.instruction
+
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import ru.castprograms.hackeducation.ui.start.authorization.AuthorizationFragment
-import ru.castprograms.hackeducation.ui.start.instruction.InstructionAllFragment
-import ru.castprograms.hackeducation.ui.start.instruction.InstructionFragment1
-import ru.castprograms.hackeducation.ui.start.instruction.InstructionFragment2
-
 
 class ViewPager2FragmentAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
     override fun createFragment(position: Int): Fragment {

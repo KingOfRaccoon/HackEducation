@@ -75,33 +75,21 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
             CustomItemDecorator(requireContext().getDrawable(R.drawable.vector)!!)
         )
 
-        binding.fabTop.setOnClickListener{
+        binding.cardUser.setOnClickListener{
             findNavController().navigate(R.id.action_coursesFragment_to_topFragment)
         }
 
-//        binding.recyclerCourses.addOnScrollListener(object: RecyclerView.OnScrollListener(){
-//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-//                super.onScrolled(recyclerView, dx, dy)
-//                println(dy)
-//            }
-//        })
+        binding.fab.setOnClickListener {
+            findNavController().navigate(R.id.action_coursesFragment_to_createCourseFragment)
+        }
     }
 
     private fun removeTextFromButton(binding: FragmentCoursesBinding, progress: Float) {
-        val textButton = requireContext().resources.getString(R.string.all_skills)
-//        binding.imageButtonShowAllSkills.crossfade = progress
         binding.containerRecyclerCourses.cardElevation = 10 * (1 - progress)
         binding.containerRecyclerCourses.radius = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
             30f,
             requireActivity().resources.displayMetrics) * (1 - progress)
         binding.buttonRecycler.elevation = 10 * (1 - progress)
-        binding.textButtonShowAllSkills.let {
-//            it.scaleX = (1 - progress)
-//            it.scaleY = (1 - progress)
-//            it.wi = ceil(1 - progress).toInt() * widthTextButton
-//            it.textSize = 18 * (1 - progress)
-//            it.text = textButton.take(ceil(textButton.length * (1 - progress)).toInt())
-        }
     }
 }

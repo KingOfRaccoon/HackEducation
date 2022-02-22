@@ -27,11 +27,13 @@ class DataUserFirebase(private val firebaseFirestore: FirebaseFirestore) : DataU
         return mutableLiveData
     }
 
-    override fun getAllTeachers(): MutableLiveData<Resource<List<Teacher>>> {
-        val mutableLiveData = MutableLiveData<Resource<List<Teacher>>>(Resource.Loading())
+    override fun getAllTeachers(): MutableLiveData<Resource<List<Pair<String, Teacher>>>> {
+        val mutableLiveData = MutableLiveData<Resource<List<Pair<String, Teacher>>>>(Resource.Loading())
         firebaseFirestore.collection(teachers_tag).addSnapshotListener { value, error ->
             if (value != null)
-                mutableLiveData.postValue(Resource.Success(value.toObjects(Teacher::class.java)))
+                mutableLiveData.postValue(Resource.Success(value.documents.map {
+                    it.id to it.toObject(Teacher::class.java)!!
+                }))
             else
                 mutableLiveData.postValue(Resource.Error(error?.message.toString()))
         }
