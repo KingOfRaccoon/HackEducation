@@ -37,12 +37,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/checkboxTitleText"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:text="Видеоконференции позволяют полноценно общаться сразу с несколькими учениками и получать моментальную обратную связь. Чтобы организовать видеозвонок, все участники процесса устанавливают программу на свой компьютер или регистрируются в онлайн-сервисе. Преподаватель перед уроком создаёт «комнату» и приглашает в неё слушателей."
         android:layout_marginTop="8dp"
         android:layout_marginStart="26dp"
-        android:layout_marginBottom="18dp"
+        android:paddingBottom="10dp"
         android:layout_marginEnd="25dp"
         android:textSize="20sp"/>
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/image_text_course"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:round="26dp"
+        app:layout_constraintTop_toBottomOf="@id/text_course"
+        app:layout_constraintStart_toStartOf="@id/text_course"
+        app:layout_constraintEnd_toEndOf="@id/text_course"
+        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/test_image_for_path_course"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

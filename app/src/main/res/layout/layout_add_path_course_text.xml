@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_success"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
@@ -11,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/success_dialog"
+        android:id="@+id/dialog_create_text_path"
         style="@style/MiddleBackground"
         android:paddingBottom="40dp"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,7 +27,7 @@
             android:textSize="18sp"
             app:layout_constraintTop_toTopOf="parent"
             android:gravity="center"
-            android:text="@string/add_header"/>
+            android:text="@string/add_text"/>
 
         <ImageView
             android:id="@+id/image_title"
@@ -53,7 +52,7 @@
             android:src="@drawable/test_image_for_course" />
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/themeNumberTextContainer"
+            android:id="@+id/textTitleContainer"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             app:cardCornerRadius="54dp"
@@ -69,19 +68,19 @@
             app:strokeWidth="7dp">
 
             <EditText
-                android:id="@+id/themeNumberText"
+                android:id="@+id/textTitleText"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@null"
-                android:inputType="number"
-                android:hint="@string/number_of_theme"
-                android:autofillHints="@string/number_of_theme" />
+                android:inputType="textCapSentences"
+                android:hint="@string/text_title"
+                android:autofillHints="@string/text_title" />
 
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:id="@+id/errorThemeNumber"
+            android:id="@+id/errorTextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
@@ -90,11 +89,11 @@
             android:textSize="12sp"
             android:visibility="gone"
             android:textColor="@color/c_red"
-            app:layout_constraintStart_toStartOf="@+id/themeNumberTextContainer"
-            app:layout_constraintTop_toBottomOf="@+id/themeNumberTextContainer" />
+            app:layout_constraintStart_toStartOf="@+id/textTitleContainer"
+            app:layout_constraintTop_toBottomOf="@+id/textTitleContainer" />
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/themeNameTextContainer"
+            android:id="@+id/textPathContainer"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             app:cardCornerRadius="54dp"
@@ -105,24 +104,24 @@
             app:contentPaddingRight="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/themeNumberTextContainer"
+            app:layout_constraintTop_toBottomOf="@+id/textTitleContainer"
             app:strokeColor="#F1EFEF"
             app:strokeWidth="7dp">
 
             <EditText
-                android:id="@+id/themeNameText"
+                android:id="@+id/textPath"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@null"
                 android:inputType="textCapSentences"
-                android:hint="@string/name_of_theme"
-                android:autofillHints="@string/name_of_theme" />
+                android:hint="@string/text_path"
+                android:autofillHints="@string/text_path" />
 
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:id="@+id/errorNameTheme"
+            android:id="@+id/errorTextPath"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
@@ -131,8 +130,8 @@
             android:textSize="12sp"
             android:visibility="gone"
             android:textColor="@color/c_red"
-            app:layout_constraintStart_toStartOf="@+id/themeNameTextContainer"
-            app:layout_constraintTop_toBottomOf="@+id/themeNameTextContainer" />
+            app:layout_constraintStart_toStartOf="@+id/textPathContainer"
+            app:layout_constraintTop_toBottomOf="@+id/textPathContainer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -146,7 +145,7 @@
         app:backgroundTint="@color/teal_200"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@id/success_dialog"
-        app:layout_constraintTop_toBottomOf="@id/success_dialog"/>
+        app:layout_constraintBottom_toBottomOf="@id/dialog_create_text_path"
+        app:layout_constraintTop_toBottomOf="@id/dialog_create_text_path"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

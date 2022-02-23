@@ -30,6 +30,7 @@ import com.xwray.groupie.kotlinandroidextensions.Item
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.FragmentCreateCourseBinding
 import ru.castprograms.hackeducation.databinding.LayoutAddPathCourseHeaderBinding
+import ru.castprograms.hackeducation.databinding.LayoutAddPathCourseTextBinding
 import ru.castprograms.hackeducation.databinding.SnackbarLayoutBinding
 import ru.castprograms.hackeducation.tools.ui.DeleteItemSwipeController
 import ru.castprograms.hackeducation.tools.ui.DeleteSwipeControllerActions
@@ -41,27 +42,34 @@ class CreateCourseFragment : Fragment(R.layout.fragment_create_course) {
     private val adapter = ItemMoveGroupAdapter()
     private var imageUri = MutableLiveData(Uri.EMPTY)
 
-    private val cropActivityForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-        if (it.resultCode == Activity.RESULT_OK){
-            val data = CropImage.getActivityResult(it.data).uri
-            imageUri.postValue(data)
-        }
-    }
-
-    private val activityForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == Activity.RESULT_OK){
-            val data = it.data
-            if (data != null){
-                val imageUri = data.data
-                if (imageUri != null)
-                    cropActivityForResult.launch(
-                        CropImage.activity(imageUri)
-                            .setGuidelines(CropImageView.Guidelines.ON)
-                            .getIntent(requireContext())
-                    )
+    private val cropActivityForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                val data = CropImage.getActivityResult(it.data).uri
+                imageUri.postValue(data)
             }
         }
-    }
+
+    private val activityForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                val data = it.data
+                if (data != null) {
+                    val imageUri = data.data
+                    if (imageUri != null)
+                        cropActivityForResult.launch(
+                            CropImage.activity(imageUri)
+                                .setGuidelines(CropImageView.Guidelines.ON)
+                                .getIntent(requireContext())
+                        )
+                }
+            }
+        }
+
+    private val pickIntent =
+        Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).apply {
+            type = "image/*"
+        }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -92,12 +100,9 @@ class CreateCourseFragment : Fragment(R.layout.fragment_create_course) {
 
         val ad = createAlertDialog(view)
         dialogBinding.imageSelectForTheme.setOnClickListener {
-            val pickIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            pickIntent.type = "image/*"
-
             activityForResult.launch(pickIntent, ActivityOptionsCompat.makeBasic())
-            imageUri.observe(viewLifecycleOwner){
-                if (it != Uri.EMPTY){
+            imageUri.observe(viewLifecycleOwner) {
+                if (it != Uri.EMPTY) {
                     Glide.with(requireContext())
                         .load(it)
                         .into(dialogBinding.imageSelectForTheme)
@@ -115,7 +120,8 @@ class CreateCourseFragment : Fragment(R.layout.fragment_create_course) {
                     PathCourseHeaderItem(
                         PathCourseHeaderItem.PathCourseHeaderData(
                             dialogBinding.themeNumberText.text.trim().toString().toInt(),
-                            dialogBinding.themeNameText.text.trim().toString()
+                            dialogBinding.themeNameText.text.trim().toString(),
+                            if (imageUri.value != Uri.EMPTY) imageUri.value.toString() else ""
                         )
                     )
                 )
@@ -126,9 +132,41 @@ class CreateCourseFragment : Fragment(R.layout.fragment_create_course) {
     }
 
     private fun addText() {
-        adapter.add(
-            PathCourseTextItem()
-        )
+        val view = LayoutInflater.from(requireContext())
+            .inflate(R.layout.layout_add_path_course_text, null)
+        val dialogBinding = LayoutAddPathCourseTextBinding.bind(view)
+
+        val ad = createAlertDialog(view)
+        dialogBinding.imageSelectForTheme.setOnClickListener {
+            activityForResult.launch(pickIntent, ActivityOptionsCompat.makeBasic())
+            imageUri.observe(viewLifecycleOwner) {
+                if (it != Uri.EMPTY) {
+                    Glide.with(requireContext())
+                        .load(it)
+                        .into(dialogBinding.imageSelectForTheme)
+                }
+            }
+        }
+
+        dialogBinding.button.setOnClickListener {
+            if (validateCreateHeader(
+                    dialogBinding.errorTextPath, dialogBinding.textPath,
+                    dialogBinding.errorTextTitle, dialogBinding.textTitleText
+                )
+            ) {
+                adapter.add(
+                    PathCourseTextItem(
+                        PathCourseTextItem.PathCourseTextData(
+                            dialogBinding.textTitleText.text.trim().toString(),
+                            dialogBinding.textPath.text.trim().toString(),
+                            if (imageUri.value != Uri.EMPTY) imageUri.value.toString() else ""
+                        )
+                    )
+                )
+
+                ad.dismiss()
+            }
+        }
     }
 
     private fun validateCreateHeader(

@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="10dp"
         android:layout_marginStart="13dp"
-        android:text="Тема 1"
+        tools:text="Тема 1"
         android:textStyle="bold"
         android:textSize="24sp"/>
 
@@ -40,8 +40,9 @@
         app:layout_constraintStart_toStartOf="@id/checkboxThemeTitle"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="5dp"
+        android:paddingBottom="10dp"
         android:textSize="22sp"
-        android:text="Программы для проведения видеоконференций"
+        tools:text="Программы для проведения видеоконференций"
         app:layout_constraintEnd_toStartOf="@id/start_image_icon"/>
 
     <androidx.constraintlayout.widget.Guideline
@@ -52,11 +53,12 @@
         app:layout_constraintGuide_percent="0.75" />
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_title_theme"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginVertical="20dp"
         android:layout_marginEnd="12dp"
-        android:src="@drawable/test_image_for_course"
+        tools:src="@drawable/test_image_for_course"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"

@@ -19,4 +19,7 @@
     <string name="name_of_theme">Название темы</string>
     <string name="create">Добавить</string>
     <string name="add_header">Добавить заголовок</string>
+    <string name="add_text">Добавить текст</string>
+    <string name="text_title">Заголовок</string>
+    <string name="text_path">Текст</string>
 </resources>

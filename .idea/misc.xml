@@ -36,6 +36,7 @@
         <entry key="app/src/main/res/drawable/background_dark.xml" value="0.186" />
         <entry key="app/src/main/res/drawable/background_for_path_header.xml" value="0.201" />
         <entry key="app/src/main/res/drawable/background_for_path_text.xml" value="0.201" />
+        <entry key="app/src/main/res/drawable/background_image.xml" value="0.201" />
         <entry key="app/src/main/res/drawable/background_standard.xml" value="0.186" />
         <entry key="app/src/main/res/drawable/background_title_alert_dialog.xml" value="0.201" />
         <entry key="app/src/main/res/drawable/delete_outline.xml" value="0.201" />
@@ -63,6 +64,8 @@
         <entry key="app/src/main/res/layout/item_map_course.xml" value="0.2543822146216332" />
         <entry key="app/src/main/res/layout/item_top_skill.xml" value="0.11970927746900385" />
         <entry key="app/src/main/res/layout/layout_add_path_course.xml" value="0.2424112868747328" />
+        <entry key="app/src/main/res/layout/layout_add_path_course_header.xml" value="0.29163154207826747" />
+        <entry key="app/src/main/res/layout/layout_add_path_course_text.xml" value="0.4419753086419753" />
         <entry key="app/src/main/res/layout/path_course_header.xml" value="0.4026996625421822" />
         <entry key="app/src/main/res/layout/path_course_text.xml" value="0.2543822146216332" />
         <entry key="app/src/main/res/layout/snackbar_layout.xml" value="0.2424112868747328" />
