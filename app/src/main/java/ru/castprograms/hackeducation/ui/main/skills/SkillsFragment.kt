@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.FragmentSkillsBinding
+import ru.castprograms.hackeducation.tools.Resource
 
 class SkillsFragment : Fragment(R.layout.fragment_skills) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -21,18 +22,21 @@ class SkillsFragment : Fragment(R.layout.fragment_skills) {
         binding.containerButtonHideSkills.setOnClickListener {
             findNavController().navigate(R.id.action_skillsFragment_to_coursesFragment)
         }
-//        viewModel.getAllTeachers().observe(viewLifecycleOwner){
-//            when(it){
-//                is Resource.Error -> { }
-//
-//                is Resource.Loading -> { }
-//
-//                is Resource.Success -> {
-//                    if (it.data != null){
-//                        adapter.teachers. = it.data.toMutableList()
-//                    }
-//                }
-//            }
-//        }
+        viewModel.getAllSkills().observe(viewLifecycleOwner){
+            when(it){
+                is Resource.Error -> { }
+
+                is Resource.Loading -> {
+
+                }
+
+                is Resource.Success -> {
+                    if (it.data != null){
+                        adapter.skills = it.data.toMutableList()
+                        adapter.notifyDataSetChanged()
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,15 +1,11 @@
 package ru.castprograms.hackeducation.ui.main.courses
 
-import android.app.Activity
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.theartofdev.edmodo.cropper.CropImage
-import com.theartofdev.edmodo.cropper.CropImageView
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.FragmentCoursesBinding
 
@@ -83,7 +79,7 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
             findNavController().navigate(R.id.action_coursesFragment_to_skillsFragment)
         }
 
-        binding.cardUser.setOnClickListener{
+        binding.cardUser.setOnClickListener {
             findNavController().navigate(R.id.action_coursesFragment_to_topFragment)
         }
 
@@ -97,7 +93,8 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
         binding.containerRecyclerCourses.radius = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
             30f,
-            requireActivity().resources.displayMetrics) * (1 - progress)
+            requireActivity().resources.displayMetrics
+        ) * (1 - progress)
         binding.buttonRecycler.elevation = 10 * (1 - progress)
     }
 }

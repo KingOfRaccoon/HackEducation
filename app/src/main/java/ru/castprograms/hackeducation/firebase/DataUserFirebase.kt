@@ -7,6 +7,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.firestore.FirebaseFirestore
 import ru.castprograms.hackeducation.networkinterface.DataUserInterface
 import ru.castprograms.hackeducation.tools.Resource
+import ru.castprograms.hackeducation.tools.Skill
 import ru.castprograms.hackeducation.tools.Teacher
 
 class DataUserFirebase(private val firebaseFirestore: FirebaseFirestore) : DataUserInterface {
@@ -33,6 +34,19 @@ class DataUserFirebase(private val firebaseFirestore: FirebaseFirestore) : DataU
             if (value != null)
                 mutableLiveData.postValue(Resource.Success(value.documents.map {
                     it.id to it.toObject(Teacher::class.java)!!
+                }))
+            else
+                mutableLiveData.postValue(Resource.Error(error?.message.toString()))
+        }
+        return mutableLiveData
+    }
+
+    override fun getAllSkills(): MutableLiveData<Resource<List<Pair<String, Skill>>>> {
+        val mutableLiveData = MutableLiveData<Resource<List<Pair<String, Skill>>>>(Resource.Loading())
+        firebaseFirestore.collection(skills_tag).addSnapshotListener { value, error ->
+            if (value != null)
+                mutableLiveData.postValue(Resource.Success(value.documents.map {
+                    it.id to it.toObject(Skill::class.java)!!
                 }))
             else
                 mutableLiveData.postValue(Resource.Error(error?.message.toString()))
@@ -80,6 +94,6 @@ class DataUserFirebase(private val firebaseFirestore: FirebaseFirestore) : DataU
 
     companion object {
         const val teachers_tag = "teachers"
-
+        const val skills_tag = "Skill"
     }
 }

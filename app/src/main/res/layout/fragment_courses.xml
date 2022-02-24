@@ -154,34 +154,6 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <include
-        android:id="@+id/item_skill_1"
-        layout="@layout/item_main_skill"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <include
-        android:id="@+id/item_skill_2"
-        layout="@layout/item_main_skill"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_skill_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <include
-        android:id="@+id/item_skill_3"
-        layout="@layout/item_main_skill"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_skill_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/container_button_show_all_skills"
         style="@style/start_button"

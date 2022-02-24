@@ -12,6 +12,7 @@ import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 import org.koin.dsl.module
 import ru.castprograms.hackeducation.firebase.DataUserFirebase
+import ru.castprograms.hackeducation.ui.main.skills.SkillsViewModel
 import ru.castprograms.hackeducation.ui.main.top.TopViewModel
 import ru.castprograms.hackeducation.ui.start.authorization.AuthorizationViewModel
 import ru.castprograms.hackeducation.ui.start.registration.RegistrationViewModel
@@ -32,6 +33,7 @@ class HackApplication : Application() {
         viewModel { MainViewModel(get()) }
         viewModel { RegistrationViewModel(get()) }
         viewModel { TopViewModel(get()) }
+        viewModel { SkillsViewModel(get()) }
     }
 
     override fun onCreate() {
