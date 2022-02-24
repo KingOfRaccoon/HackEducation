@@ -55,6 +55,7 @@ class TopAdapter() :
             Glide.with(itemView.context)
                 .load(teacher.img)
                 .transform(CenterCrop())
+                .error(R.drawable.test_image_for_user)
                 .into(binding.imageTeacherItem)
             binding.cPosition.text = (position + 1).toString()
         }

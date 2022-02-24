@@ -16,7 +16,7 @@ class SkillsFragment : Fragment(R.layout.fragment_skills) {
         val binding = FragmentSkillsBinding.bind(view)
         val viewModel: SkillsViewModel by viewModel()
 
-        val adapter = RecyclerViewSkills()
+        val adapter = SkillsAdapter()
         binding.recyclerViewSkills.adapter = adapter
         binding.recyclerViewSkills.layoutManager = LinearLayoutManager(requireContext())
         binding.containerButtonHideSkills.setOnClickListener {
@@ -32,8 +32,7 @@ class SkillsFragment : Fragment(R.layout.fragment_skills) {
 
                 is Resource.Success -> {
                     if (it.data != null){
-                        adapter.skills = it.data.toMutableList()
-                        adapter.notifyDataSetChanged()
+                        adapter.setData(it.data.toMutableList())
                     }
                 }
             }
