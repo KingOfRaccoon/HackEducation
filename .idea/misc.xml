@@ -65,11 +65,14 @@
         <entry key="app/src/main/res/layout/fragment_top.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_main_skill.xml" value="0.11970927746900385" />
         <entry key="app/src/main/res/layout/item_map_course.xml" value="0.2543822146216332" />
+        <entry key="app/src/main/res/layout/item_path_list.xml" value="0.4161090509077539" />
         <entry key="app/src/main/res/layout/item_top_skill.xml" value="0.11970927746900385" />
         <entry key="app/src/main/res/layout/layout_add_path_course.xml" value="0.2424112868747328" />
         <entry key="app/src/main/res/layout/layout_add_path_course_header.xml" value="0.29163154207826747" />
+        <entry key="app/src/main/res/layout/layout_add_path_course_list.xml" value="0.2543822146216332" />
         <entry key="app/src/main/res/layout/layout_add_path_course_text.xml" value="0.4419753086419753" />
         <entry key="app/src/main/res/layout/path_course_header.xml" value="0.4026996625421822" />
+        <entry key="app/src/main/res/layout/path_course_list.xml" value="0.2543822146216332" />
         <entry key="app/src/main/res/layout/path_course_text.xml" value="0.2543822146216332" />
         <entry key="app/src/main/res/layout/snackbar_layout.xml" value="0.2424112868747328" />
         <entry key="app/src/main/res/menu/navigation_main_menu.xml" value="0.2953125" />

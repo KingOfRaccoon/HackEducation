@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="6dp"
+    android:layout_marginBottom="5dp"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/c_green"
+        android:background="@drawable/background_for_path_header">
+
+        <net.igenius.customcheckbox.CustomCheckBox
+            android:id="@+id/checkboxListTitle"
+            android:layout_width="wrap_content"
+            app:color_unchecked_stroke="@color/c_red"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginVertical="14dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/checkboxListTitle"
+            app:layout_constraintTop_toTopOf="@id/checkboxListTitle"
+            app:layout_constraintBottom_toBottomOf="@id/checkboxListTitle"
+            android:layout_marginStart="13dp"
+            android:text="Список чего-то"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+
+        <androidx.constraintlayout.utils.widget.ImageFilterButton
+            android:id="@+id/button_expand_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/checkboxListTitle"
+            app:layout_constraintBottom_toBottomOf="@id/checkboxListTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/arrow_up"
+            android:rotationX="0"
+            style="@style/Widget.Material3.Button.TextButton.Dialog.Icon"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_course_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        tools:itemCount="3"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_path_list"/>
+
+</LinearLayout>

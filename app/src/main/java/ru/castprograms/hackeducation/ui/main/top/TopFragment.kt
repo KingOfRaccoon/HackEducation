@@ -34,7 +34,6 @@ class TopFragment: Fragment(R.layout.fragment_top) {
                 is Resource.Success -> {
                     if (it.data != null){
                         adapter.teachers = it.data.toList()
-                        adapter.notifyDataSetChanged()
                     }
                 }
             }

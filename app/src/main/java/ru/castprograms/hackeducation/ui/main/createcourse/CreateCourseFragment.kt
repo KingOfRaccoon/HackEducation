@@ -35,6 +35,7 @@ import ru.castprograms.hackeducation.databinding.SnackbarLayoutBinding
 import ru.castprograms.hackeducation.tools.ui.DeleteItemSwipeController
 import ru.castprograms.hackeducation.tools.ui.DeleteSwipeControllerActions
 import ru.castprograms.hackeducation.ui.main.createcourse.items.PathCourseHeaderItem
+import ru.castprograms.hackeducation.ui.main.createcourse.items.PathCourseListItem
 import ru.castprograms.hackeducation.ui.main.createcourse.items.PathCourseTextItem
 
 class CreateCourseFragment : Fragment(R.layout.fragment_create_course) {
@@ -78,7 +79,7 @@ class CreateCourseFragment : Fragment(R.layout.fragment_create_course) {
         val deleteItemSwipeController = DeleteItemSwipeController(requireContext(),
             object : DeleteSwipeControllerActions {
                 override fun deleteItem(position: Int) {
-                    testSnack(position, adapter.getItem(position) as Item)
+                    createSnackBar(position, adapter.getItem(position) as Item)
                     adapter.remove(adapter.getItem(position) as Item)
                 }
             })
@@ -91,6 +92,50 @@ class CreateCourseFragment : Fragment(R.layout.fragment_create_course) {
         binding.addText.setOnClickListener {
             addText()
         }
+
+        binding.addList.setOnClickListener {
+            addList()
+        }
+    }
+
+    private fun addList() {
+        adapter.add(PathCourseListItem())
+//        val view = LayoutInflater.from(requireContext())
+//            .inflate(R.layout.layout_add_path_course_header, null)
+//        val dialogBinding = LayoutAddPathCourseHeaderBinding.bind(view)
+//
+//        val ad = createAlertDialog(view)
+//        dialogBinding.imageSelectForTheme.setOnClickListener {
+//            activityForResult.launch(pickIntent, ActivityOptionsCompat.makeBasic())
+//            imageUri.observe(viewLifecycleOwner) {
+//                if (it != Uri.EMPTY) {
+//                    Glide.with(requireContext())
+//                        .load(it)
+//                        .into(dialogBinding.imageSelectForTheme)
+//                }
+//            }
+//        }
+//
+//        dialogBinding.button.setOnClickListener {
+//            if (validateCreateHeader(
+//                    dialogBinding.errorThemeNumber, dialogBinding.themeNumberText,
+//                    dialogBinding.errorNameTheme, dialogBinding.themeNameText
+//                )
+//            ) {
+//                adapter.add(
+//                    PathCourseHeaderItem(
+//                        PathCourseHeaderItem.PathCourseHeaderData(
+//                            dialogBinding.themeNumberText.text.trim().toString().toInt(),
+//                            dialogBinding.themeNameText.text.trim().toString(),
+//                            if (imageUri.value != Uri.EMPTY) imageUri.value.toString() else ""
+//                        )
+//                    )
+//                )
+//
+//                ad.dismiss()
+//            }
+//        }
+
     }
 
     private fun addHeader() {
@@ -192,7 +237,7 @@ class CreateCourseFragment : Fragment(R.layout.fragment_create_course) {
         }
     }
 
-    private fun testSnack(position: Int, item: Item) {
+    private fun createSnackBar(position: Int, item: Item) {
         val snackBar = Snackbar.make(requireView(), "Test", Snackbar.LENGTH_INDEFINITE)
         val snackLayout = snackBar.view as Snackbar.SnackbarLayout
         val snackBarView = layoutInflater.inflate(R.layout.snackbar_layout, null)

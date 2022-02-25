@@ -32,7 +32,7 @@ class TopAdapter() :
                 return field[oldItemPosition].second == value[newItemPosition].second
             }
         }
-        DiffUtil.calculateDiff(diffCallback, true)
+        DiffUtil.calculateDiff(diffCallback, true).dispatchUpdatesTo(this)
         field = value
     }
 

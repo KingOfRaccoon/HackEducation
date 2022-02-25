@@ -21,4 +21,5 @@
     <color name="colorPrimary">#008577</color>
 
     <color name="norm_black">#353535</color>
+    <color name="back_check">#F1EFEF</color>
 </resources>
