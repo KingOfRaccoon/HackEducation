@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.ItemTopSkillBinding
-import ru.castprograms.hackeducation.tools.Skill
+import ru.castprograms.hackeducation.tools.Achievement
 
 class SkillsAdapter :
     RecyclerView.Adapter<SkillsAdapter.ViewHolderRealize>() {
-    var skills = listOf<Pair<String, Skill>>()
+    var skills = listOf<Pair<String, Achievement>>()
 
-    fun setData(newList: List<Pair<String, Skill>>) {
+    fun setData(newList: List<Pair<String, Achievement>>) {
             val diffCallback = object : DiffUtil.Callback() {
                 override fun getOldListSize(): Int {
                     return skills.size
@@ -55,7 +55,7 @@ class SkillsAdapter :
 
     inner class ViewHolderRealize(item: View) : RecyclerView.ViewHolder(item) {
         val binding = ItemTopSkillBinding.bind(itemView)
-        fun onBing(skill: Skill, position: Int) {
+        fun onBing(skill: Achievement, position: Int) {
             Log.d("FIRE", skill.skillImg)
             binding.skillName.text = skill.skillName
             Glide.with(itemView.context)
