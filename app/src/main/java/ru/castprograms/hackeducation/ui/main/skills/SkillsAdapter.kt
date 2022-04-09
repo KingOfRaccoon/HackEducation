@@ -6,13 +6,12 @@ import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.ItemTopSkillBinding
-import ru.castprograms.hackeducation.databinding.LayoutAddPathCourseTextBinding
+import ru.castprograms.hackeducation.databinding.LayoutDescAchievementBinding
 import ru.castprograms.hackeducation.tools.Achievement
 
 class SkillsAdapter :
@@ -67,7 +66,7 @@ class SkillsAdapter :
                 .load(skill.skillImg)
                 .into(binding.imageSkillItem)
             binding.cardSkill.setOnClickListener {
-                showDescAch(itemView.context)
+                showDescAch(itemView.context, skill)
 //                val builder = AlertDialog.Builder(itemView.context)
 //                with(builder) {
 //                    setTitle("Icon and Button Color")
@@ -98,15 +97,21 @@ class SkillsAdapter :
         }
     }
 
-    private fun showDescAch(context: Context) {
+    private fun showDescAch(context: Context, itemView: Achievement) {
         val view = LayoutInflater.from(context)
             .inflate(R.layout.layout_desc_achievement, null)
-        val dialogBinding = LayoutAddPathCourseTextBinding.bind(view)
+        val dialogBinding = LayoutDescAchievementBinding.bind(view)
 
         val ad = createAlertDialog(view)
-        dialogBinding.button.setOnClickListener {
+        dialogBinding.archOk.setOnClickListener {
             ad.dismiss()
         }
+        dialogBinding.closeDesc.setOnClickListener { ad.dismiss() }
+        dialogBinding.achTitle.text = itemView.skillName
+        dialogBinding.achDesc.text = itemView.desc
+        Glide.with(context)
+            .load(itemView.skillImg)
+            .into(dialogBinding.achIcon)
     }
 }
 

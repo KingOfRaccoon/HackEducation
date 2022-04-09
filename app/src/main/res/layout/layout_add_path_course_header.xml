@@ -136,17 +136,40 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="40dp"
-        android:text="@string/create"
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/button"
-        android:layout_marginEnd="40dp"
-        app:backgroundTint="@color/teal_200"
-        android:textColor="@color/white"
-        android:textSize="18sp"
+        style="@style/start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:contentPadding="0dp"
+        android:elevation="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/success_dialog"
-        app:layout_constraintTop_toBottomOf="@id/success_dialog"/>
+        app:layout_constraintTop_toBottomOf="@id/success_dialog">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_button_skills"
+                style="@style/ButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:maxLines="2"
+                android:text="@string/create"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
