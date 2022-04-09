@@ -28,7 +28,7 @@
             android:textSize="18sp"
             app:layout_constraintTop_toTopOf="parent"
             android:gravity="center"
-            android:text="@string/add_header"/>
+            android:text="@string/add_list"/>
 
         <ImageView
             android:id="@+id/image_title"
@@ -41,98 +41,15 @@
             app:layout_constraintTop_toTopOf="@id/text_title"
             android:src="@drawable/add"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/image_select_for_theme"
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintTop_toBottomOf="@id/text_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/test_image_for_course" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/themeNumberTextContainer"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            app:cardCornerRadius="54dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="20dp"
-            app:contentPaddingLeft="20dp"
-            app:contentPaddingRight="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_select_for_theme"
-            app:strokeColor="#F1EFEF"
-            app:strokeWidth="7dp">
-
-            <EditText
-                android:id="@+id/themeNumberText"
-                android:layout_gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@null"
-                android:inputType="number"
-                android:hint="@string/number_of_theme"
-                android:autofillHints="@string/number_of_theme" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:id="@+id/errorThemeNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:layout_marginStart="20dp"
-            tools:text="dssf"
-            android:textSize="12sp"
-            android:visibility="gone"
-            android:textColor="@color/c_red"
-            app:layout_constraintStart_toStartOf="@+id/themeNumberTextContainer"
-            app:layout_constraintTop_toBottomOf="@+id/themeNumberTextContainer" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/themeNameTextContainer"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            app:cardCornerRadius="54dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="40dp"
-            app:contentPaddingLeft="20dp"
-            app:contentPaddingRight="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/themeNumberTextContainer"
-            app:strokeColor="#F1EFEF"
-            app:strokeWidth="7dp">
-
-            <EditText
-                android:id="@+id/themeNameText"
-                android:layout_gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@null"
-                android:inputType="textCapSentences"
-                android:hint="@string/name_of_theme"
-                android:autofillHints="@string/name_of_theme" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:id="@+id/errorNameTheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:layout_marginStart="20dp"
-            tools:text="dssf"
-            android:textSize="12sp"
-            android:visibility="gone"
-            android:textColor="@color/c_red"
-            app:layout_constraintStart_toStartOf="@+id/themeNameTextContainer"
-            app:layout_constraintTop_toBottomOf="@+id/themeNameTextContainer" />
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_add_path_item"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

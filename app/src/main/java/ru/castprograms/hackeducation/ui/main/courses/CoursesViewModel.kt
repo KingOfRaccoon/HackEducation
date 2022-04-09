@@ -5,5 +5,6 @@ import ru.castprograms.hackeducation.tools.ViewModelWithGoogleAccount
 
 class CoursesViewModel(dataUserFirebase: DataUserFirebase) :
     ViewModelWithGoogleAccount(dataUserFirebase) {
-
+    fun getAllTeachers() = dataUserFirebase.getAllTeachers()
+    fun getAllSkills() = dataUserFirebase.getAllSkills()
 }

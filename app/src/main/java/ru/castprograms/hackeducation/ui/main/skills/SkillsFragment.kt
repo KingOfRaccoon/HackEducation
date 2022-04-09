@@ -22,16 +22,27 @@ class SkillsFragment : Fragment(R.layout.fragment_skills) {
         binding.containerButtonHideSkills.setOnClickListener {
             findNavController().navigate(R.id.action_skillsFragment_to_coursesFragment)
         }
-        viewModel.getAllSkills().observe(viewLifecycleOwner){
-            when(it){
-                is Resource.Error -> { }
 
-                is Resource.Loading -> {
+        viewModel.getAllTeachers().observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Error -> {}
 
-                }
+                is Resource.Loading -> {}
 
                 is Resource.Success -> {
-                    if (it.data != null){
+                    it.data?.indexOf(it.data
+                        .find { it.first == viewModel.getGoogleAccount(requireContext())?.id })
+                        ?.let { binding.positionTeachersInTop.text = (it+1).toString() }
+                }
+            }
+        }
+
+        viewModel.getAllSkills().observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Error -> {}
+                is Resource.Loading -> {}
+                is Resource.Success -> {
+                    if (it.data != null) {
                         adapter.setData(it.data.toMutableList())
                     }
                 }

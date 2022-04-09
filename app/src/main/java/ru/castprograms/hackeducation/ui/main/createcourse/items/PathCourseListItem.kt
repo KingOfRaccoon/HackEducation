@@ -13,9 +13,12 @@ import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.ItemPathListBinding
 import ru.castprograms.hackeducation.databinding.PathCourseListBinding
 import ru.castprograms.hackeducation.tools.AndroidTools
+import ru.castprograms.hackeducation.tools.Element
+import ru.castprograms.hackeducation.tools.TypeData
+import ru.castprograms.hackeducation.tools.ui.Data
 
 
-class PathCourseListItem : Item() {
+class PathCourseListItem(val pathCourseListItem: PathCourseListItem) : Item() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         val binding = PathCourseListBinding.bind(viewHolder.itemView)
         binding.recyclerCourseItem.adapter = CourseListAdapter()
@@ -37,6 +40,9 @@ class PathCourseListItem : Item() {
     }
 
     override fun getLayout() = R.layout.path_course_list
+
+    class PathCourseListData(title: String = "", val elements: List<Element> = listOf()) :
+        Data(title, TypeData.List)
 
     inner class CourseListAdapter : RecyclerView.Adapter<CourseListAdapter.CourseListViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseListViewHolder {

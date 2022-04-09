@@ -56,7 +56,6 @@ class SkillsAdapter :
     inner class ViewHolderRealize(item: View) : RecyclerView.ViewHolder(item) {
         val binding = ItemTopSkillBinding.bind(itemView)
         fun onBing(skill: Achievement, position: Int) {
-            Log.d("FIRE", skill.skillImg)
             binding.skillName.text = skill.skillName
             Glide.with(itemView.context)
                 .load(skill.skillImg)

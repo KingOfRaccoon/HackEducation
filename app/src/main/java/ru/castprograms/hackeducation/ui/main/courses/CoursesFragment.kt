@@ -1,25 +1,48 @@
 package ru.castprograms.hackeducation.ui.main.courses
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.FragmentCoursesBinding
+import ru.castprograms.hackeducation.tools.Course
 import ru.castprograms.hackeducation.tools.Resource
+import ru.castprograms.hackeducation.ui.main.skills.SkillsAdapter
 
 class CoursesFragment : Fragment(R.layout.fragment_courses) {
-    val coursesViewModel: CoursesViewModel by viewModel()
+    private val coursesViewModel: CoursesViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentCoursesBinding.bind(view)
         setUserData(binding)
-        binding.recyclerCourses.adapter = MapCourseAdapter()
+        val mapAdapter = MapCourseAdapter()
+        binding.recyclerCourses.adapter = mapAdapter
+        mapAdapter.updateCourses(
+            listOf(
+                "1" to Course(
+                    Uri.parse(
+                        "android.resource://" + requireContext().packageName
+                                + "/" + R.drawable.ic_collaboration
+                    ),
+                    "Курс 1"
+                ),
+                "2" to Course(
+                    Uri.parse(
+                        "android.resource://" + requireContext().packageName
+                                + "/" + R.drawable.ic_collaborative
+                    ),
+                    "Курс 2"
+                )
+            )
+        )
         binding.buttonRecycler.setOnClickListener {
             if (binding.root.currentState == R.id.start_courses)
                 binding.root.transitionToEnd()
@@ -32,8 +55,7 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
                 motionLayout: MotionLayout?,
                 startId: Int,
                 endId: Int
-            ) {
-            }
+            ) {}
 
             override fun onTransitionChange(
                 motionLayout: MotionLayout?,
@@ -41,10 +63,14 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
                 endId: Int,
                 progress: Float
             ) {
-                if (startId == R.id.start_courses)
-                    removeTextFromButton(binding, progress)
-                else
-                    removeTextFromButton(binding, 1 - progress)
+                when (endId) {
+                    R.id.end_courses -> removeTextFromButton(binding, progress)
+                    R.id.achievement_courses -> reverseImageFromButton(binding, progress)
+                    else -> {
+                        reverseImageFromButton(binding, 1 - progress)
+                        removeTextFromButton(binding, 1 - progress)
+                    }
+                }
             }
 
             override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
@@ -62,16 +88,17 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
                 triggerId: Int,
                 positive: Boolean,
                 progress: Float
-            ) {
-            }
+            ) {}
         })
 
-        binding.recyclerCourses.setOnTouchListener { _, event ->
-            if (!binding.recyclerCourses.canScrollVertically(1)) {
-                binding.root.onTouchEvent(event)
-            }
-            return@setOnTouchListener false
-        }
+//        binding.recyclerCourses.setOnTouchListener { _, event ->
+//            if (!binding.recyclerCourses.canScrollVertically(1)
+//                && binding.root.currentState != R.id.start_courses
+//            ) {
+//                binding.root.onTouchEvent(event)
+//            }
+//            return@setOnTouchListener false
+//        }
         binding.recyclerCourses.layoutManager = CoursesLinearLayoutManager(requireContext()).apply {
             reverseLayout = true
             isScrollEnabled = false
@@ -81,7 +108,11 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
         )
 
         binding.containerButtonShowAllSkills.setOnClickListener {
-            findNavController().navigate(R.id.action_coursesFragment_to_skillsFragment)
+//            findNavController().navigate(R.id.action_coursesFragment_to_skillsFragment)
+            if (binding.root.currentState == R.id.start_courses)
+                binding.root.transitionToState(R.id.achievement_courses)
+            else
+                binding.root.transitionToState(R.id.start_courses)
         }
 
         binding.cardUser.setOnClickListener {
@@ -91,18 +122,51 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_coursesFragment_to_createCourseFragment)
         }
+
+        coursesViewModel.getAllTeachers().observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Error -> {}
+
+                is Resource.Loading -> {}
+
+                is Resource.Success -> {
+                    it.data?.indexOf(it.data
+                        .find { it.first == coursesViewModel.getGoogleAccount(requireContext())?.id })
+                        ?.let { binding.positionTeachersInTop.text = (it + 1).toString() }
+                }
+            }
+        }
+        val adapter = SkillsAdapter()
+        binding.recyclerViewSkills.adapter = adapter
+        binding.recyclerViewSkills.layoutManager = LinearLayoutManager(requireContext())
+
+        coursesViewModel.getAllSkills().observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Error -> {}
+                is Resource.Loading -> {}
+                is Resource.Success -> {
+                    if (it.data != null) {
+                        adapter.setData(it.data.toMutableList())
+                    }
+                }
+            }
+        }
+    }
+
+    private fun reverseImageFromButton(binding: FragmentCoursesBinding, progress: Float) {
+        binding.imageButtonShowAllSkills.rotationX = 180 * (1 - progress)
     }
 
     private fun setUserData(binding: FragmentCoursesBinding) {
-        coursesViewModel.getTeacher().observe(viewLifecycleOwner){
-            when(it){
+        coursesViewModel.getTeacher().observe(viewLifecycleOwner) {
+            when (it) {
                 is Resource.Error -> {}
                 is Resource.Loading -> {}
                 is Resource.Success -> {
                     it.data?.let {
                         Glide.with(requireContext())
                             .load(it.img)
-                            .placeholder(R.drawable.test_image_for_user)
+                            .error(R.drawable.test_image_for_user)
                             .into(binding.imageUser)
 
                         binding.textNameUser.text = it.fullName()

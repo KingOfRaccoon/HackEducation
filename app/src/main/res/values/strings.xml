@@ -12,7 +12,7 @@
     <string name="done">Готово</string>
     <string name="skip">Пропустить</string>
     <string name="next">Далее</string>
-    <string name="all_skills">Все навыки</string>
+    <string name="all_skills">Достижения</string>
     <string name="hide_skills">Скрыть навыки</string>
     <string name="where">Где я?</string>
     <string name="number_of_theme">Номер темы</string>
@@ -22,4 +22,6 @@
     <string name="add_text">Добавить текст</string>
     <string name="text_title">Заголовок</string>
     <string name="text_path">Текст</string>
+    <string name="add_list">Добавить список</string>
+    <string name="text_desc">Описание</string>
 </resources>

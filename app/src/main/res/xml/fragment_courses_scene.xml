@@ -49,13 +49,22 @@
         <Constraint
             app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/item_skill_1" />
+        <Constraint
+            android:id="@+id/card_skill"
+            app:layout_constraintEnd_toEndOf="@id/card_user"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/card_user"
+            app:layout_constraintTop_toTopOf="@id/card_user"
+            app:layout_constraintStart_toStartOf="@id/card_user"
+            android:alpha="0" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end_courses">
         <Constraint
             android:id="@+id/container_recycler_courses"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
         <Constraint
@@ -64,8 +73,18 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="7dp"
             app:layout_constraintTop_toBottomOf="parent"
-            android:alpha="0"
+            android:alpha="1"
             android:layout_marginTop="16dp" />
+
+        <Constraint
+            android:id="@+id/card_skill"
+            app:layout_constraintEnd_toEndOf="@id/card_user"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/card_user"
+            app:layout_constraintTop_toTopOf="@id/card_user"
+            app:layout_constraintStart_toStartOf="@id/card_user"
+            android:alpha="0" />
 
         <Constraint
             android:id="@+id/button_recycler"
@@ -124,13 +143,72 @@
         </Constraint>
     </ConstraintSet>
 
+    <ConstraintSet android:id="@+id/achievement_courses">
+
+        <Constraint
+            android:id="@+id/container_recycler_courses"
+            app:layout_constraintEnd_toEndOf="@id/end_recycler_courses"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/start_recycler_courses" />
+        <Constraint
+            android:id="@+id/card_user"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintTop_toBottomOf="@id/container_recycler_courses"
+            android:alpha="0"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" />
+        <Constraint
+            android:id="@+id/card_skill"
+            app:layout_constraintEnd_toEndOf="@id/card_user"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/card_user"
+            app:layout_constraintTop_toTopOf="@id/card_user"
+            app:layout_constraintStart_toStartOf="@id/card_user"
+            android:alpha="1" />
+        <Constraint
+            android:id="@+id/recyclerViewSkills"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/card_skill"
+            android:alpha="1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" />
+    </ConstraintSet>
+
     <Transition
-        app:constraintSetEnd="@id/end_courses"
-        app:constraintSetStart="@id/start_courses">
+        app:constraintSetStart="@id/start_courses"
+        app:constraintSetEnd="@id/end_courses">
         <OnSwipe
-            app:touchAnchorId="@id/container_recycler_courses"
+            app:autoCompleteMode="continuousVelocity"
             app:onTouchUp="decelerateAndComplete"
-            app:dragDirection="dragUp"
-            app:autoCompleteMode="continuousVelocity" />
+            app:dragDirection="dragDown"
+            />
     </Transition>
+
+<!--    <Transition-->
+<!--        app:constraintSetStart="@id/end_courses"-->
+<!--        app:constraintSetEnd="@id/start_courses">-->
+<!--        <OnSwipe-->
+<!--            app:touchRegionId="@id/container_recycler_courses"-->
+<!--            app:dragDirection="dragDown"-->
+<!--            app:onTouchUp="decelerateAndComplete"-->
+<!--            />-->
+<!--    </Transition>-->
+    <Transition
+        app:constraintSetStart="@id/start_courses"
+        app:constraintSetEnd="@id/achievement_courses">
+        <OnSwipe
+            app:dragDirection="dragUp"
+            />
+    </Transition>
+
 </MotionScene>

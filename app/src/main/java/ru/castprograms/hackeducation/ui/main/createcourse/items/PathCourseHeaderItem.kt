@@ -6,12 +6,15 @@ import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
 import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.PathCourseHeaderBinding
+import ru.castprograms.hackeducation.tools.TypeData
+import ru.castprograms.hackeducation.tools.ui.Data
 
 class PathCourseHeaderItem(private val pathCourseHeaderData: PathCourseHeaderData) : Item() {
+
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         val binding = PathCourseHeaderBinding.bind(viewHolder.itemView)
         binding.textThemeNumber.text = pathCourseHeaderData.themeAndNumber()
-        binding.textNameTheme.text = pathCourseHeaderData.themeText
+        binding.textNameTheme.text = pathCourseHeaderData.title
         if (pathCourseHeaderData.image != "")
             Glide.with(viewHolder.containerView.context)
                 .load(pathCourseHeaderData.image)
@@ -23,10 +26,10 @@ class PathCourseHeaderItem(private val pathCourseHeaderData: PathCourseHeaderDat
     override fun getLayout() = R.layout.path_course_header
 
     class PathCourseHeaderData(
-        val themeNumber: Int = 0,
-        val themeText: String = "",
+        private val themeNumber: Int = 0,
+        themeText: String = "",
         val image: String = ""
-    ){
+    ): Data(themeText, TypeData.Header){
         fun themeAndNumber() = "Тема $themeNumber"
     }
 }

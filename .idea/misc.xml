@@ -45,6 +45,10 @@
         <entry key="app/src/main/res/drawable/delete_outline.xml" value="0.201" />
         <entry key="app/src/main/res/drawable/dotted.xml" value="0.186" />
         <entry key="app/src/main/res/drawable/google_icon.xml" value="0.186" />
+        <entry key="app/src/main/res/drawable/gray_oval.xml" value="0.248" />
+        <entry key="app/src/main/res/drawable/ic_back_confetti.xml" value="0.248" />
+        <entry key="app/src/main/res/drawable/ic_back_recycler.xml" value="0.248" />
+        <entry key="app/src/main/res/drawable/ic_star.xml" value="0.313" />
         <entry key="app/src/main/res/drawable/ic_untitled_2_copy.xml" value="0.186" />
         <entry key="app/src/main/res/drawable/profile.xml" value="0.186" />
         <entry key="app/src/main/res/drawable/rating.xml" value="0.186" />
@@ -52,11 +56,12 @@
         <entry key="app/src/main/res/drawable/title_splash.xml" value="0.186" />
         <entry key="app/src/main/res/drawable/undo.xml" value="0.1555" />
         <entry key="app/src/main/res/drawable/zoom_out_map.xml" value="0.201" />
+        <entry key="app/src/main/res/drawable/ьштгы.xml" value="0.248" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/fragement_authorization.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_authorization.xml" value="0.20069478352864573" />
-        <entry key="app/src/main/res/layout/fragment_courses.xml" value="0.2076568603515625" />
+        <entry key="app/src/main/res/layout/fragment_courses.xml" value="0.2620391845703125" />
         <entry key="app/src/main/res/layout/fragment_create_course.xml" value="0.2543822146216332" />
         <entry key="app/src/main/res/layout/fragment_instruction.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.15572916666666667" />
@@ -64,9 +69,11 @@
         <entry key="app/src/main/res/layout/fragment_skills.xml" value="0.2543822146216332" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.15208892822265613" />
         <entry key="app/src/main/res/layout/fragment_top.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_add_path_item.xml" value="0.3809955539841997" />
         <entry key="app/src/main/res/layout/item_main_skill.xml" value="0.11970927746900385" />
         <entry key="app/src/main/res/layout/item_map_course.xml" value="0.2543822146216332" />
         <entry key="app/src/main/res/layout/item_path_list.xml" value="0.4161090509077539" />
+        <entry key="app/src/main/res/layout/item_top.xml" value="0.2543822146216332" />
         <entry key="app/src/main/res/layout/item_top_skill.xml" value="0.11970927746900385" />
         <entry key="app/src/main/res/layout/layout_add_path_course.xml" value="0.2424112868747328" />
         <entry key="app/src/main/res/layout/layout_add_path_course_header.xml" value="0.29163154207826747" />

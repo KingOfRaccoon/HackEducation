@@ -37,11 +37,10 @@
         app:layout_constraintBottom_toTopOf="@id/start_text_name_item"
         app:layout_constraintEnd_toEndOf="@id/start_text_name_item"
         android:layout_margin="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/gradient_circle"
-        android:src="@drawable/google_icon"
-        android:padding="5dp"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        android:src="@drawable/google_icon" />
 
     <com.google.android.material.textview.MaterialTextView
         android:visibility="gone"
@@ -63,10 +62,9 @@
         app:layout_constraintBottom_toTopOf="@id/end_text_name_item"
         app:layout_constraintEnd_toEndOf="@id/end_text_name_item"
         android:layout_margin="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/gradient_circle"
-        android:src="@drawable/google_icon"
-        android:padding="5dp"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        android:src="@drawable/google_icon"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

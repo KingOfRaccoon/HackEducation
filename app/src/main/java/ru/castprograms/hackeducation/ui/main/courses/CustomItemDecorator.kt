@@ -36,14 +36,14 @@ class CustomItemDecorator(private val dividerDrawable: Drawable) : RecyclerView.
                 val top = bottom - dividerDrawable.intrinsicHeight
                 val right = view.right * 0.825
                 dividerDrawable.bounds = Rect(left.toInt(), top, right.toInt(), bottom)
-                c.save(); //Saving the canvas and later restoring it so only this image will be rotated.
+                c.save()
                 if (position % 2 != 0)
                     MirroredDrawable(dividerDrawable).apply {
                         bounds = dividerDrawable.bounds
                     }.draw(c)
                 else
                     dividerDrawable.draw(c)
-                c.restore();
+                c.restore()
             }
         }
     }

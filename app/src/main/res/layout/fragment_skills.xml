@@ -45,12 +45,12 @@
                 style="@style/Title_in_instruction"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/image_yellow_item"
                 android:layout_alignTop="@id/image_yellow_item"
                 android:layout_alignBottom="@id/image_yellow_item"
                 android:layout_gravity="center"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_toEndOf="@id/image_yellow_item"
                 android:lines="2"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
@@ -68,8 +68,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="20dp"
                 android:gravity="center_vertical"
-                android:text="4"
-                android:textSize="28dp" />
+                tools:text="4"
+                android:textSize="28sp" />
 
         </RelativeLayout>
 
