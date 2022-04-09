@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/c_green"
         android:background="@drawable/background_for_path_header">
 
         <net.igenius.customcheckbox.CustomCheckBox

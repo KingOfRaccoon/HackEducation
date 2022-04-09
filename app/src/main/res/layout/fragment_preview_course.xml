@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/white"
+                app:cardElevation="8dp"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardView.Cut"
+                app:strokeWidth="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textThemeNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginTop="10dp"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Тема 1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textNameTheme"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="22sp"
+                        app:layout_constraintEnd_toStartOf="@id/start_image_icon"
+                        app:layout_constraintStart_toStartOf="@id/textThemeNumber"
+                        app:layout_constraintTop_toBottomOf="@id/textThemeNumber"
+                        tools:text="Программы для проведения видеоконференций" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/start_image_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.75" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/image_title_theme"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="20dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/start_image_icon"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@drawable/test_image_for_course" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                app:strokeWidth="0dp"
+                android:layout_marginBottom="16dp"
+                app:cardElevation="8dp"
+                style="@style/ShapeAppearanceOverlay.MaterialCardView.Cut"
+                android:backgroundTint="@color/white">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <net.igenius.customcheckbox.CustomCheckBox
+                        android:id="@+id/checkboxTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="13dp"
+                        app:color_unchecked_stroke="@color/c_red"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_title_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:text="Для чего нужны"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/checkboxTitleText"
+                        app:layout_constraintStart_toEndOf="@id/checkboxTitleText"
+                        app:layout_constraintTop_toTopOf="@id/checkboxTitleText" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_course"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="26dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="25dp"
+                        android:paddingBottom="10dp"
+                        android:text="Видеоконференции позволяют полноценно общаться сразу с несколькими учениками и получать моментальную обратную связь. Чтобы организовать видеозвонок, все участники процесса устанавливают программу на свой компьютер или регистрируются в онлайн-сервисе. Преподаватель перед уроком создаёт «комнату» и приглашает в неё слушателей."
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@id/checkboxTitleText" />
+
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:id="@+id/image_text_course"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/test_image_for_path_course"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="2:1"
+                        app:layout_constraintEnd_toEndOf="@id/text_course"
+                        app:layout_constraintStart_toStartOf="@id/text_course"
+                        app:layout_constraintTop_toBottomOf="@id/text_course"
+                        app:round="26dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

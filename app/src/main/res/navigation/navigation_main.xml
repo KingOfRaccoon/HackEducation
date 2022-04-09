@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_main"
     app:startDestination="@id/coursesFragment">
 
     <fragment
         android:id="@+id/coursesFragment"
         android:name="ru.castprograms.hackeducation.ui.main.courses.CoursesFragment"
-        android:label="CoursesFragment" >
+        android:label="CoursesFragment"
+        tools:layout="@layout/fragment_courses">
         <action
             android:id="@+id/action_coursesFragment_to_topFragment"
             app:destination="@id/topFragment" />
         <action
-            android:id="@+id/action_coursesFragment_to_skillsFragment"
-            app:destination="@id/skillsFragment" />
-        <action
             android:id="@+id/action_coursesFragment_to_createCourseFragment"
             app:destination="@id/createCourseFragment" />
+        <action
+            android:id="@+id/action_coursesFragment_to_showCourseFragment"
+            app:destination="@id/showCourseFragment" />
     </fragment>
     <fragment
         android:id="@+id/topFragment"
         android:name="ru.castprograms.hackeducation.ui.main.top.TopFragment"
-        android:label="TopFragment" >
+        android:label="TopFragment"
+        tools:layout="@layout/fragment_top">
         <action
             android:id="@+id/action_topFragment_to_coursesFragment"
             app:destination="@id/coursesFragment" />
@@ -30,17 +32,20 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="ru.castprograms.hackeducation.ui.main.profile.ProfileFragment"
-        android:label="ProfileFragment" />
-    <fragment
-        android:id="@+id/skillsFragment"
-        android:name="ru.castprograms.hackeducation.ui.main.skills.SkillsFragment"
-        android:label="SkillsFragment" >
-        <action
-            android:id="@+id/action_skillsFragment_to_coursesFragment"
-            app:destination="@id/coursesFragment" />
-    </fragment>
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
     <fragment
         android:id="@+id/createCourseFragment"
         android:name="ru.castprograms.hackeducation.ui.main.createcourse.CreateCourseFragment"
-        android:label="CreateCourseFragment" />
+        android:label="CreateCourseFragment"
+        tools:layout="@layout/fragment_create_course"/>
+    <fragment
+        android:id="@+id/showCourseFragment"
+        android:name="ru.castprograms.hackeducation.ui.main.showcourse.ShowCourseFragment"
+        android:label="ShowCourseFragment"
+        tools:layout="@layout/fragment_show_course">
+        <argument
+            android:name="course"
+            app:argType="ru.castprograms.hackeducation.tools.Course" />
+    </fragment>
 </navigation>

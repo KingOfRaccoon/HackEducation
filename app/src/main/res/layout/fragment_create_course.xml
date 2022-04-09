@@ -40,6 +40,7 @@
         android:id="@+id/recycler_new_course"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@drawable/ic_back_confetti"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_marginHorizontal="10dp"

@@ -14,15 +14,36 @@ import ru.castprograms.hackeducation.R
 import ru.castprograms.hackeducation.databinding.FragmentCoursesBinding
 import ru.castprograms.hackeducation.tools.Course
 import ru.castprograms.hackeducation.tools.Resource
+import ru.castprograms.hackeducation.ui.main.createcourse.items.PathCourseHeaderItem
+import ru.castprograms.hackeducation.ui.main.createcourse.items.PathCourseTextItem
 import ru.castprograms.hackeducation.ui.main.skills.SkillsAdapter
 
 class CoursesFragment : Fragment(R.layout.fragment_courses) {
     private val coursesViewModel: CoursesViewModel by viewModel()
+    lateinit var binding: FragmentCoursesBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        println(savedInstanceState?.getInt("state"))
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("state", binding.root.currentState)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        coursesViewModel.state = binding.root.currentState
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentCoursesBinding.bind(view)
+        binding = FragmentCoursesBinding.bind(view)
+        binding.root.setTransition(binding.root.currentState, coursesViewModel.state)
+        binding.root.transitionToEnd()
         setUserData(binding)
+//        binding.root.transitionToState(coursesViewModel.state, 0)
         val mapAdapter = MapCourseAdapter()
         binding.recyclerCourses.adapter = mapAdapter
         mapAdapter.updateCourses(
@@ -31,23 +52,32 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
                     Uri.parse(
                         "android.resource://" + requireContext().packageName
                                 + "/" + R.drawable.ic_collaboration
-                    ),
-                    "Курс 1"
+                    ).toString(),
+                    "Курс 1",
+                    listOf(
+                        PathCourseHeaderItem.PathCourseHeaderData(
+                            0, "Введение", Uri.parse(
+                                "android.resource://" + requireContext().packageName
+                                        + "/" + R.drawable.ic_collaboration
+                            ).toString()
+                        ),
+                        PathCourseTextItem.PathCourseTextData()
+                    )
                 ),
                 "2" to Course(
                     Uri.parse(
                         "android.resource://" + requireContext().packageName
                                 + "/" + R.drawable.ic_collaborative
-                    ),
+                    ).toString(),
                     "Курс 2"
                 )
             )
         )
         binding.buttonRecycler.setOnClickListener {
             if (binding.root.currentState == R.id.start_courses)
-                binding.root.transitionToEnd()
+                binding.root.transitionToState(R.id.end_courses)
             else
-                binding.root.transitionToStart()
+                binding.root.transitionToState(R.id.start_courses)
         }
 
         binding.root.setTransitionListener(object : MotionLayout.TransitionListener {
@@ -55,7 +85,8 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
                 motionLayout: MotionLayout?,
                 startId: Int,
                 endId: Int
-            ) {}
+            ) {
+            }
 
             override fun onTransitionChange(
                 motionLayout: MotionLayout?,
@@ -88,7 +119,8 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
                 triggerId: Int,
                 positive: Boolean,
                 progress: Float
-            ) {}
+            ) {
+            }
         })
 
 //        binding.recyclerCourses.setOnTouchListener { _, event ->

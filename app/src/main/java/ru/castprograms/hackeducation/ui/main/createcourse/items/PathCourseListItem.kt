@@ -18,7 +18,7 @@ import ru.castprograms.hackeducation.tools.TypeData
 import ru.castprograms.hackeducation.tools.ui.Data
 
 
-class PathCourseListItem(val pathCourseListItem: PathCourseListItem) : Item() {
+class PathCourseListItem(val pathCourseListData: PathCourseListItem.PathCourseListData) : Item() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         val binding = PathCourseListBinding.bind(viewHolder.itemView)
         binding.recyclerCourseItem.adapter = CourseListAdapter()

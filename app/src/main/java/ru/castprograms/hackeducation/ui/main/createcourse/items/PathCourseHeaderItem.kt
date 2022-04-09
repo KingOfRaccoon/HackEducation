@@ -1,5 +1,6 @@
 package ru.castprograms.hackeducation.ui.main.createcourse.items
 
+import android.net.Uri
 import android.view.View
 import com.bumptech.glide.Glide
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
@@ -17,7 +18,7 @@ class PathCourseHeaderItem(private val pathCourseHeaderData: PathCourseHeaderDat
         binding.textNameTheme.text = pathCourseHeaderData.title
         if (pathCourseHeaderData.image != "")
             Glide.with(viewHolder.containerView.context)
-                .load(pathCourseHeaderData.image)
+                .load(Uri.parse(pathCourseHeaderData.image))
                 .into(binding.imageTitleTheme)
         else
             binding.imageTitleTheme.visibility = View.GONE
@@ -26,7 +27,7 @@ class PathCourseHeaderItem(private val pathCourseHeaderData: PathCourseHeaderDat
     override fun getLayout() = R.layout.path_course_header
 
     class PathCourseHeaderData(
-        private val themeNumber: Int = 0,
+        var themeNumber: Int = 0,
         themeText: String = "",
         val image: String = ""
     ): Data(themeText, TypeData.Header){
