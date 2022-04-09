@@ -149,136 +149,136 @@ class CreateCourseFragment : Fragment(R.layout.fragment_create_course) {
             imageUri.observe(viewLifecycleOwner) {
                 if (it != Uri.EMPTY) {
                     Glide.with(requireContext())
-                        .load(it)
-                        .into(dialogBinding.imageSelectForTheme)
-                }
+            .load(it)
+    .into(dialogBinding.imageSelectForTheme)
+}
+}
+}
+
+dialogBinding.button.setOnClickListener {
+    if (validateCreateHeader(
+            dialogBinding.errorThemeNumber, dialogBinding.themeNumberText,
+            dialogBinding.errorNameTheme, dialogBinding.themeNameText
+        )
+    ) {
+        adapter.add(
+            PathCourseHeaderItem(
+                PathCourseHeaderItem.PathCourseHeaderData(
+                    dialogBinding.themeNumberText.text.trim().toString().toInt(),
+                    dialogBinding.themeNameText.text.trim().toString(),
+                    if (imageUri.value != Uri.EMPTY) imageUri.value.toString() else ""
+                )
+            )
+        )
+
+        ad.dismiss()
+    }
+}
+}
+
+private fun addText() {
+    val view = LayoutInflater.from(requireContext())
+        .inflate(R.layout.layout_add_path_course_text, null)
+    val dialogBinding = LayoutAddPathCourseTextBinding.bind(view)
+
+    val ad = createAlertDialog(view)
+    dialogBinding.imageSelectForTheme.setOnClickListener {
+        activityForResult.launch(pickIntent, ActivityOptionsCompat.makeBasic())
+        imageUri.observe(viewLifecycleOwner) {
+            if (it != Uri.EMPTY) {
+                Glide.with(requireContext())
+                    .load(it)
+                    .into(dialogBinding.imageSelectForTheme)
             }
         }
+    }
 
-        dialogBinding.button.setOnClickListener {
-            if (validateCreateHeader(
-                    dialogBinding.errorThemeNumber, dialogBinding.themeNumberText,
-                    dialogBinding.errorNameTheme, dialogBinding.themeNameText
-                )
-            ) {
-                adapter.add(
-                    PathCourseHeaderItem(
-                        PathCourseHeaderItem.PathCourseHeaderData(
-                            dialogBinding.themeNumberText.text.trim().toString().toInt(),
-                            dialogBinding.themeNameText.text.trim().toString(),
-                            if (imageUri.value != Uri.EMPTY) imageUri.value.toString() else ""
-                        )
+    dialogBinding.button.setOnClickListener {
+        if (validateCreateHeader(
+                dialogBinding.errorTextPath, dialogBinding.textPath,
+                dialogBinding.errorTextTitle, dialogBinding.textTitleText
+            )
+        ) {
+            adapter.add(
+                PathCourseTextItem(
+                    PathCourseTextItem.PathCourseTextData(
+                        dialogBinding.textTitleText.text.trim().toString(),
+                        dialogBinding.textPath.text.trim().toString(),
+                        if (imageUri.value != Uri.EMPTY) imageUri.value.toString() else ""
                     )
                 )
+            )
 
-                ad.dismiss()
-            }
+            ad.dismiss()
         }
     }
+}
 
-    private fun addText() {
-        val view = LayoutInflater.from(requireContext())
-            .inflate(R.layout.layout_add_path_course_text, null)
-        val dialogBinding = LayoutAddPathCourseTextBinding.bind(view)
+private fun validateCreateHeader(
+    firstError: TextView,
+    firstEditText: EditText,
+    secondError: TextView,
+    secondEditText: EditText
+) = !mutableListOf(
+    isValidEditText(firstEditText, firstError),
+    isValidEditText(secondEditText, secondError)
+).contains(false)
 
-        val ad = createAlertDialog(view)
-        dialogBinding.imageSelectForTheme.setOnClickListener {
-            activityForResult.launch(pickIntent, ActivityOptionsCompat.makeBasic())
-            imageUri.observe(viewLifecycleOwner) {
-                if (it != Uri.EMPTY) {
-                    Glide.with(requireContext())
-                        .load(it)
-                        .into(dialogBinding.imageSelectForTheme)
-                }
-            }
-        }
+private fun isValidEditText(
+    editText: EditText,
+    editTextError: TextView
+): Boolean {
+    return if (editText.text.isNullOrEmpty() || editText.text.isNullOrBlank()) {
+        editTextError.text = "Поле не должно быть пустым"
+        editTextError.visibility = View.VISIBLE
+        false
+    } else {
+        true
+    }
+}
 
-        dialogBinding.button.setOnClickListener {
-            if (validateCreateHeader(
-                    dialogBinding.errorTextPath, dialogBinding.textPath,
-                    dialogBinding.errorTextTitle, dialogBinding.textTitleText
-                )
-            ) {
-                adapter.add(
-                    PathCourseTextItem(
-                        PathCourseTextItem.PathCourseTextData(
-                            dialogBinding.textTitleText.text.trim().toString(),
-                            dialogBinding.textPath.text.trim().toString(),
-                            if (imageUri.value != Uri.EMPTY) imageUri.value.toString() else ""
-                        )
-                    )
-                )
-
-                ad.dismiss()
-            }
-        }
+private fun createSnackBar(position: Int, item: Item) {
+    val snackBar = Snackbar.make(requireView(), "Test", Snackbar.LENGTH_INDEFINITE)
+    val snackLayout = snackBar.view as Snackbar.SnackbarLayout
+    val snackBarView = layoutInflater.inflate(R.layout.snackbar_layout, null)
+    val snackBarBinding = SnackbarLayoutBinding.bind(snackBarView)
+    val anim = ObjectAnimator.ofInt(snackBarBinding.progressBarSnackBar, "progress", 6000, 0)
+    anim.duration = 6000
+    snackBarBinding.textProgressSnackBar.setFactory {
+        val textView = TextView(requireContext())
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
+        textView.gravity = Gravity.CENTER
+        textView.setTextColor(Color.WHITE)
+        textView
     }
 
-    private fun validateCreateHeader(
-        firstError: TextView,
-        firstEditText: EditText,
-        secondError: TextView,
-        secondEditText: EditText
-    ) = !mutableListOf(
-        isValidEditText(firstEditText, firstError),
-        isValidEditText(secondEditText, secondError)
-    ).contains(false)
-
-    private fun isValidEditText(
-        editText: EditText,
-        editTextError: TextView
-    ): Boolean {
-        return if (editText.text.isNullOrEmpty() || editText.text.isNullOrBlank()) {
-            editTextError.text = "Поле не должно быть пустым"
-            editTextError.visibility = View.VISIBLE
-            false
-        } else {
-            true
-        }
+    snackBarBinding.buttonUndoSnackBar.setOnClickListener {
+        adapter.add(position, item)
+        snackBar.dismiss()
     }
 
-    private fun createSnackBar(position: Int, item: Item) {
-        val snackBar = Snackbar.make(requireView(), "Test", Snackbar.LENGTH_INDEFINITE)
-        val snackLayout = snackBar.view as Snackbar.SnackbarLayout
-        val snackBarView = layoutInflater.inflate(R.layout.snackbar_layout, null)
-        val snackBarBinding = SnackbarLayoutBinding.bind(snackBarView)
-        val anim = ObjectAnimator.ofInt(snackBarBinding.progressBarSnackBar, "progress", 6000, 0)
-        anim.duration = 6000
-        snackBarBinding.textProgressSnackBar.setFactory {
-            val textView = TextView(requireContext())
-            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
-            textView.gravity = Gravity.CENTER
-            textView.setTextColor(Color.WHITE)
-            textView
-        }
+    anim.addUpdateListener {
+        val time = ((anim.duration - it.currentPlayTime) / 1000).toInt().toString()
+        if (time != (snackBarBinding.textProgressSnackBar[0] as TextView).text)
+            snackBarBinding.textProgressSnackBar.setText(time)
+    }
 
-        snackBarBinding.buttonUndoSnackBar.setOnClickListener {
-            adapter.add(position, item)
+    anim.addListener(object : Animator.AnimatorListener {
+        override fun onAnimationStart(p0: Animator?) {}
+        override fun onAnimationEnd(p0: Animator?) {
             snackBar.dismiss()
         }
 
-        anim.addUpdateListener {
-            val time = ((anim.duration - it.currentPlayTime) / 1000).toInt().toString()
-            if (time != (snackBarBinding.textProgressSnackBar[0] as TextView).text)
-                snackBarBinding.textProgressSnackBar.setText(time)
-        }
+        override fun onAnimationCancel(p0: Animator?) {}
+        override fun onAnimationRepeat(p0: Animator?) {}
+    })
+    anim.start()
+    snackLayout.removeAllViewsInLayout()
+    snackLayout.addView(snackBarView)
+    snackBar.show()
+}
 
-        anim.addListener(object : Animator.AnimatorListener {
-            override fun onAnimationStart(p0: Animator?) {}
-            override fun onAnimationEnd(p0: Animator?) {
-                snackBar.dismiss()
-            }
-
-            override fun onAnimationCancel(p0: Animator?) {}
-            override fun onAnimationRepeat(p0: Animator?) {}
-        })
-        anim.start()
-        snackLayout.removeAllViewsInLayout()
-        snackLayout.addView(snackBarView)
-        snackBar.show()
-    }
-
-    private fun createAlertDialog(view: View): AlertDialog {
+private fun createAlertDialog(view: View): AlertDialog {
         return AlertDialog.Builder(requireContext()).setView(view).create().apply {
             window?.setBackgroundDrawable(ColorDrawable(0))
             show()

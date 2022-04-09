@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/text_title"
+            android:id="@+id/ach_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_title_alert_dialog"
@@ -31,29 +31,29 @@
             android:text="@string/add_header"/>
 
         <ImageView
-            android:id="@+id/image_title"
+            android:id="@+id/close_desc"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginEnd="10dp"
             android:contentDescription="@string/app_name"
-            app:layout_constraintBottom_toBottomOf="@id/text_title"
+            app:layout_constraintBottom_toBottomOf="@id/ach_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/text_title"
+            app:layout_constraintTop_toTopOf="@id/ach_title"
             android:src="@drawable/add"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/image_select_for_theme"
+            android:id="@+id/imageSelectForTheme"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_marginTop="20dp"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintTop_toBottomOf="@id/text_title"
+            app:layout_constraintTop_toBottomOf="@id/ach_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/test_image_for_course" />
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/themeNumberTextContainer"
+            android:id="@+id/ach_desc"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             app:cardCornerRadius="54dp"
@@ -64,7 +64,7 @@
             app:contentPaddingRight="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_select_for_theme"
+            app:layout_constraintTop_toBottomOf="@+id/imageSelectForTheme"
             app:strokeColor="#F1EFEF"
             app:strokeWidth="7dp">
 
@@ -90,8 +90,8 @@
             android:textSize="12sp"
             android:visibility="gone"
             android:textColor="@color/c_red"
-            app:layout_constraintStart_toStartOf="@+id/themeNumberTextContainer"
-            app:layout_constraintTop_toBottomOf="@+id/themeNumberTextContainer" />
+            app:layout_constraintStart_toStartOf="@+id/ach_desc"
+            app:layout_constraintTop_toBottomOf="@+id/ach_desc" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/themeNameTextContainer"
@@ -105,7 +105,7 @@
             app:contentPaddingRight="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/themeNumberTextContainer"
+            app:layout_constraintTop_toBottomOf="@+id/ach_desc"
             app:strokeColor="#F1EFEF"
             app:strokeWidth="7dp">
 
@@ -139,9 +139,9 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:id="@+id/button"
         android:layout_marginStart="40dp"
         android:text="@string/create"
+        android:id="@+id/button"
         android:layout_marginEnd="40dp"
         app:backgroundTint="@color/teal_200"
         android:textColor="@color/white"
