@@ -99,7 +99,7 @@ class CreateCourseFragment : Fragment(R.layout.fragment_create_course) {
     }
 
     private fun addList() {
-        adapter.add(PathCourseListItem())
+        adapter.add(PathCourseListItem(PathCourseListItem.PathCourseListData("TEst")))
 //        val view = LayoutInflater.from(requireContext())
 //            .inflate(R.layout.layout_add_path_course_header, null)
 //        val dialogBinding = LayoutAddPathCourseHeaderBinding.bind(view)

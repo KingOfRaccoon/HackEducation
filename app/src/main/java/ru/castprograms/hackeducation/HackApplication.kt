@@ -35,7 +35,7 @@ class HackApplication : Application() {
         viewModel { MainViewModel(get()) }
         viewModel { RegistrationViewModel(get()) }
         viewModel { TopViewModel(get()) }
-        viewModel { SkillsViewModel(get()) }
+        single { SkillsViewModel(get()) }
         viewModel { CoursesViewModel(get()) }
     }
 

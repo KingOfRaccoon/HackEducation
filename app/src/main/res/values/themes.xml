@@ -79,4 +79,26 @@
         <item name="android:background">@drawable/background_alert_dialog</item>
         <item name="android:backgroundTint">@color/white</item>
     </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.Cut" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">50%</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeBottomRight">50%</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.Item" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">50%</item>
+        <item name="cornerSizeTopLeft">50%</item>
+        <item name="cornerSizeBottomRight">50%</item>
+        <item name="cornerSizeBottomLeft">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.Text" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">10%</item>
+        <item name="cornerSizeBottomRight">10%</item>
+    </style>
 </resources>

@@ -20,7 +20,7 @@ class SkillsFragment : Fragment(R.layout.fragment_skills) {
         binding.recyclerViewSkills.adapter = adapter
         binding.recyclerViewSkills.layoutManager = LinearLayoutManager(requireContext())
         binding.containerButtonHideSkills.setOnClickListener {
-            findNavController().navigate(R.id.action_skillsFragment_to_coursesFragment)
+//            findNavController().navigate(R.id.action_skillsFragment_to_coursesFragment)
         }
 
         viewModel.getAllTeachers().observe(viewLifecycleOwner) {
